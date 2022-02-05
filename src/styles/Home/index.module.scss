@@ -1,0 +1,323 @@
+$heigh_navbar_1920:130px;
+$width_logo_1920: 360px;
+$font_logo_1920:70px;
+
+
+.navbar{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height:calc($heigh_navbar_1920 / 1.4) ;
+    background:#959494;
+    @media screen and (min-width:1920px) {
+        height: calc($heigh_navbar_1920);
+    }
+    @media screen and (max-width:1440px){
+        height: calc($heigh_navbar_1920 / 1.4);
+    }
+    @media screen and (max-width:1024px){
+        height: calc($heigh_navbar_1920 / 1.875);
+    }
+    @media screen and (max-width:800px){
+        height: calc($heigh_navbar_1920 / 2);
+    }
+    @media screen and (max-width:325px){
+        height: calc($heigh_navbar_1920 / 2.2);
+    }
+
+    &__logo_place{ 
+        position: relative;
+        height: 100%;
+        width: 20%;
+        margin-right: 5%;
+        float: left;
+        @media screen and (max-width:1440px){
+            margin-right: 10%;
+        }
+        @media screen and (max-width:600px){
+            margin-right: 20%;
+        }
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    &__logo{
+        cursor: pointer;
+        font-size: $font_logo_1920;
+        text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+        font-family:'ReggaeOne'; color: #000;
+        @media screen and (min-width:1920px) {
+            font-size: calc($font_logo_1920);
+        }
+        @media screen and (max-width:1440px){
+            font-size: calc($font_logo_1920 / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            font-size: calc($font_logo_1920 / 1.875);
+            text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        }
+        @media screen and (max-width: 800px) {
+            font-size: calc($font_logo_1920 / 2.5);
+        }
+        @media screen and (max-width: 600px) {
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        @media screen and (max-width:325px){
+            font-size: calc($font_logo_1920 / 3.2);
+        }
+    }
+    &__guide_button{
+        float: left;
+        width: 10%;
+        height: 100%;
+        @media screen and (max-width:600px){
+            margin-right: 10%;
+        }
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    &__guide_icon{
+        position: relative;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        height: 50%;
+        width: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__search{
+        float: left;
+        position: relative; 
+        width: 30%;
+        height: 100%;
+    }
+    &__switch{
+        float: right;
+        position: relative;
+        height: 100%;
+        width: 10%;
+        @media screen and (max-width:600px){
+            display: none;
+        }
+    }
+    &__avatar{
+        float: right;
+        position: relative;
+        height: 100%;
+        width: 10%;
+        @media screen and (max-width:600px){
+            display: none;
+        }
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+.search{
+    &__place{
+        position: absolute;
+        display: inline-grid;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__icon{
+        height: 100%;
+        width: 100%;
+    }
+    &__input{
+        position: relative;
+        width: 500px;
+        height: 70px;
+        max-height: 70px;
+        max-width: 500px;
+        padding-left: 5%;
+        padding-right: 15%;
+        font-size: 30px;
+        mix-blend-mode: normal;
+        border: 3px solid #000000;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px 20px 20px 10px;
+        @media screen and (min-width:1920px) {
+            width: calc(500px);
+            height: calc(70px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(500px / 1.4);
+            height: calc(70px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(500px / 1.6);
+            height: calc(70px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(500px / 2);
+            height: calc(70px / 2);
+        } 
+        @media screen and (max-width:600px){
+            width: calc(500px / 2.8);
+            height: calc(70px / 2)
+        }
+        @media screen and (max-width:325px){
+            width: calc(500px / 3.2);
+            height: calc(70px / 2.5);
+        }
+    }
+    &__button{
+        position: absolute;
+        width: 77px;
+        height: 70px;
+        background: #959494;
+        border: 3px solid #000000;
+        box-sizing: border-box;
+        border-radius: 20px;
+        right:0%;
+        cursor: pointer;
+        @media screen and (min-width:1920px) {
+            width: calc(77px);
+            height: calc(70px);
+            border-radius: 20px;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(77px / 1.4);
+            height: calc(70px / 1.4);
+            border-radius: calc(20px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(77px / 1.6);
+            height: calc(70px / 1.6);
+            border-radius: calc(20px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(77px / 2);
+            height: calc(70px / 2);
+            border-radius: calc(20px / 2);
+        }
+        @media screen and (max-width:325px){
+            width: calc(77px / 2.5);
+            height: calc(70px / 2.5);
+            border-radius: calc(20px / 2.5);
+        }
+    }
+}
+.switch{
+    &__place{
+        position: absolute;
+        display: inline-grid;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__box{
+        position: relative;
+        width: 130px;
+        height: 55px;
+        overflow: hidden;
+        background: #FFFEFE;
+        border: 3px solid #000000;
+        box-sizing: border-box;
+        border-radius: 30px;
+        @media screen and (min-width:1920px) {
+            width: calc(130px);
+            height: calc(55px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(130px / 1.4);
+            height: calc(55px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(130px / 1.6);
+            height: calc(55px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(130px / 2);
+            height: calc(55px / 2);
+        }
+        @media screen and (max-width:325px){
+            width: calc(130px / 2.5);
+            height: calc(55px / 2.5);
+        }
+    }
+    &__switcher{
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        right: 5%;
+        top: 10%;
+        border-radius: 50%;
+        cursor: pointer;
+        background: #EC790F;
+        @media screen and (min-width:1920px) {
+            width: calc(42px);
+            height: calc(42px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(42px / 1.4);
+            height: calc(42px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(42px / 1.6);
+            height: calc(42px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(42px / 2);
+            height: calc(42px / 2);
+        }
+        @media screen and (max-width:325px){
+            width: calc(42px / 2.5);
+            height: calc(42px / 2.5);
+        }
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+}
+.avatar{
+    &__place{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__box{
+        position: relative;
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        border-radius: 50%;
+        cursor: pointer;
+        background: #C4C4C4;
+        @media screen and (min-width:1920px) {
+            width: calc(90px);
+            height: calc(90px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(90px / 1.4);
+            height: calc(90px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(90px / 1.6);
+            height: calc(90px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(90px / 2);
+            height: calc(90px / 2);
+        }
+        @media screen and (max-width:325px){
+            width: calc(90px / 2.5);
+            height: calc(90px / 2.5);
+        }
+    }
+    &__icon{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@font-face {
+    font-family: 'ReggaeOne';
+    src: url(../../fonts/ReggaeOne-Regular.ttf);
+}
