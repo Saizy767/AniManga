@@ -1,0 +1,94 @@
+.navbar{
+    &__switch{
+        float: right;
+        position: relative;
+        height: 100%;
+        width: 10%;
+        @media screen and (max-width:600px){
+            display: none;
+        }
+    }
+}
+.switch{
+    &__place{
+        position: absolute;
+        display: inline-grid;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__box{
+        position: relative;
+        width: 130px;
+        height: 55px;
+        overflow: hidden;
+        background: #FFFEFE;
+        border: 3px solid #000000;
+        box-sizing: border-box;
+        border-radius: 30px;
+        @media screen and (min-width:1920px) {
+            width: calc(130px);
+            height: calc(55px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(130px / 1.4);
+            height: calc(55px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(130px / 1.6);
+            height: calc(55px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(130px / 2);
+            height: calc(55px / 2);
+            border: 2px solid #000000;
+        }
+        @media screen and (max-width:325px){
+            width: calc(130px / 2.5);
+            height: calc(55px / 2.5);
+        }
+    }
+    &__switcher{
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        right: 5%;
+        top: 10%;
+        border-radius: 50%;
+        cursor: pointer;
+        background: #EC790F;
+        @media screen and (min-width:1920px) {
+            width: calc(42px);
+            height: calc(42px) ;
+        }
+        @media screen and (max-width:1440px){
+            width: calc(42px / 1.4);
+            height: calc(42px / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            width: calc(42px / 1.6);
+            height: calc(42px / 1.6);
+        }
+        @media screen and (max-width:800px){
+            width: calc(42px / 2);
+            height: calc(42px / 2);
+        }
+        @media screen and (max-width:325px){
+            width: calc(42px / 2.5);
+            height: calc(42px / 2.5);
+        }
+        &:hover{
+            transform: scale(1.05);
+        }
+        &_logo{
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            display: flex;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}

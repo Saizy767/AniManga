@@ -1,0 +1,27 @@
+.main{
+    &_background{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin-top: 6.8%;
+        margin-left: 3%;
+        @media screen and (max-width:1300px) {
+            margin-top: 7.5%;
+            margin-left: 3%;
+        }
+        @media screen and (max-width:800px) {
+            margin-top: 8.2%;
+            margin-left: 3%;
+        }
+        @media screen and (max-width:600px) {
+            margin-top: 10.8%;
+            margin-left: 0%;
+        }
+    }
+    &__Daily_updates{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
+        grid-gap: .5rem;
+        padding: 40px 15%;
+    }
+}

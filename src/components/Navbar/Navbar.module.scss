@@ -1,0 +1,27 @@
+$heigh_navbar_1920:130px;
+$width_logo_1920: 360px;
+
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    height:calc($heigh_navbar_1920 / 1.4) ;
+    background:rgba(126, 126, 126, 1);
+    z-index: 2;
+    @media screen and (min-width:1920px) {
+        height: calc($heigh_navbar_1920);
+    }
+    @media screen and (max-width:1440px){
+        height: calc($heigh_navbar_1920 / 1.4);
+    }
+    @media screen and (max-width:1024px){
+        height: calc($heigh_navbar_1920 / 1.875);
+    }
+    @media screen and (max-width:800px){
+        height: calc($heigh_navbar_1920 / 2);
+    }
+    @media screen and (max-width:325px){
+        height: calc($heigh_navbar_1920 / 2.2);
+    }
+}

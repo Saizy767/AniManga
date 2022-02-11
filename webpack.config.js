@@ -10,7 +10,7 @@ module.exports={
         filename: '[name]_bundle.js'
       },
     resolve:{
-      extensions: [".tsx", ".js"]
+      extensions: [".tsx", ".js",".ts"]
     },
     plugins:[
       new HTMLWebpackPlugin({
@@ -27,7 +27,7 @@ module.exports={
           use: ['css-loader','sass-loader']
         },
         {
-          test: /\.(png|svg|jpg|gif)/,
+          test: /\.(png|svg|jpg|gif|jpeg)/,
           issuer:/\.[jt]sx?$/,
           use:['file-loader'],
           type:'asset/resource',

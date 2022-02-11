@@ -1,0 +1,43 @@
+.Card{
+    position: relative;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 5px ;
+    &:hover{
+        transform: scale(1.05);
+    }
+    &__name{
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        color: rgb(255, 166, 0);
+        cursor: pointer;
+        margin-bottom: 5%;
+        text-decoration: none;
+        &:hover{
+            color: rgb(255, 190, 1);
+        }
+        &_box{
+            position: relative;
+            top: 95%;
+            box-shadow: 0px 2px 30px 30px black;
+            background-color: black;
+        }
+    }
+    &__logo{
+        position: relative;
+        cursor: pointer;
+        max-height: 310px;
+    }
+    &__last_episod{
+        position: relative;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 5%;
+        &:hover{
+            color:rgb(243, 188, 85)
+        }
+    }
+}

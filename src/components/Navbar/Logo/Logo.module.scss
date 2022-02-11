@@ -1,0 +1,52 @@
+$font_logo_1920:70px;
+
+.navbar{
+    &__logo_place{ 
+        position: relative;
+        height: 100%;
+        width: 20%;
+        margin-right: 5%;
+        float: left;
+        @media screen and (max-width:1440px){
+            margin-right: 10%;
+        }
+        @media screen and (max-width:600px){
+            margin-right: 20%;
+        }
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    &__logo_box{
+        display: inline-block;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+    &__logo{
+        cursor: pointer;
+        font-size: $font_logo_1920;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        font-family:'ReggaeOne'; color: #000;
+        @media screen and (min-width:1920px) {
+            font-size: calc($font_logo_1920);
+        }
+        @media screen and (max-width:1440px){
+            font-size: calc($font_logo_1920 / 1.4);
+        }
+        @media screen and (max-width:1024px){
+            font-size: calc($font_logo_1920 / 1.875);
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        @media screen and (max-width: 800px) {
+            font-size: calc($font_logo_1920 / 2.5);
+        }
+        @media screen and (max-width: 600px) {
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        @media screen and (max-width:325px){
+            font-size: calc($font_logo_1920 / 3.2);
+        }
+    }
+}
