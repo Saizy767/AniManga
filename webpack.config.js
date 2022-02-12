@@ -1,21 +1,28 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 
 module.exports={
     mode: 'development',
-    entry: ['@babel/polyfill' , './src/pages/index.tsx'],
+    entry: {main: './src/pages/index.tsx',
+            manga: './src/pages/[id].tsx'},
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name]_bundle.js'
+        filename: '[name].[hash].js'
       },
     resolve:{
       extensions: [".tsx", ".js",".ts"]
     },
+    devServer:{
+      static: './dist'
+    },
     plugins:[
       new HTMLWebpackPlugin({
         template:'./src/index.html'
-      })],
+      }),
+      new CleanWebpackPlugin()
+    ],
     module:{
       rules:[
         {
