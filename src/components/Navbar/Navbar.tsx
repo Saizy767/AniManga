@@ -1,6 +1,5 @@
 import React, {FC} from "react";
 
-import Switch from "./Switch/Switch";
 import Avatar from "./Avatar/Avatar";
 import Guide_button from "./Guide_button/Guide_button";
 import Logo from "./Logo/Logo";
@@ -16,7 +15,7 @@ const Navbar: FC = () =>{
             <Logo/>
             <Search/>
             <Avatar/>
-            <Switch/>
+
         </nav>
     )
 }

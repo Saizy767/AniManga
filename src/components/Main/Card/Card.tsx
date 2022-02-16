@@ -8,12 +8,12 @@ interface PropsType{
     title:string,
     score:number,
     mal_id:number,
-    
+    minWidth:string
 }
 
-const Card: FC<PropsType> = ({image_url,title,score,mal_id}) => {
+const Card: FC<PropsType> = ({image_url,title,score,mal_id, minWidth}) => {
     return(
-        <div className={styles.Card}>
+        <div className={styles.Card} style={{minWidth:minWidth}}>
             <Link href={'/' + mal_id}>
                 <div className={styles.Card__main}>
                     <img src={image_url} className={styles.Card__logo}/>

@@ -1,39 +1,44 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 
-
+import { useRecentlyAddedManga } from "../../../hooks/useRecentlyAddedManga";
+import { useLastManga } from "../../../hooks/useLastUpdatedManga";
+import { useAllManga } from "../../../hooks/useAllManga";
 import Card from '../Card/Card'
+import {Carousel }from '../Carousel/Carousel'
+
 import styles from './Main_home.module.scss'
 
 const Main: FC = () =>{
-    
-    interface Manga{
-        mal_id:number,
-        score:number,
-        title: string,
-        type: string,
-        image_url: string,
-        key: string,
-    }
-    const [TopManga, SetTopManga] = useState<Array<Manga>>([])
-
-    const GetTopManga = async () =>{
-        const temp: any = await fetch('https://api.jikan.moe/v3/top/manga/1/bypopularity')
-            .then(res=> res.json())
-            SetTopManga(temp.top.slice(0,50))}
-
-    useEffect(()=>{
-        GetTopManga()
-    },[])
-    console.log(TopManga)
+    const RecentlyAddedManga= useRecentlyAddedManga()
+    const LastManga = useLastManga()
+    const AllManga = useAllManga()
     
     return(
         <main className={styles.main_background}>
-            <div style={{width:'100%', height:'20%', position:'relative'}}></div>
-            <div className={styles.main__Daily_updates}>
+             <h1 className={styles.main__Category_name}>Recently Added</h1>
+            <Carousel>
                 { 
-                TopManga.map((el)=>{
-                    return <Card key={el.mal_id}
+                RecentlyAddedManga.map((el)=>{
+                    return <Card key={el.mal_id} minWidth='190px'
                                 {...el}
+                                />
+                })}
+            </Carousel>
+            <h1 className={styles.main__Category_name}>Updated Manga</h1>
+            <Carousel>
+                { 
+                LastManga.map((el)=>{
+                    return <Card key={el.mal_id} minWidth='190px'
+                                    {...el}
+                                    />
+                    })}
+            </Carousel>
+            <h1 className={styles.main__Category_name}>MANGA</h1>
+            <div className={styles.main__form_card}>
+                { 
+                AllManga.map((el)=>{
+                    return <Card key={el.mal_id} minWidth='170px'
+                                    {...el}
                                 />
                 })}
             </div>

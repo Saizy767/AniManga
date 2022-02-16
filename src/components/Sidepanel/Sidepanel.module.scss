@@ -5,7 +5,7 @@ $heigh_navbar_1920:130px;
     width: 20%;
     background-color: rgba(126,126,126,1);
     height: 100%;
-    z-index: 100;
+    z-index: 1000;
     padding-top: 5%;
     overflow: hidden;
     @media screen and (min-width:1920px) {
@@ -49,6 +49,9 @@ $heigh_navbar_1920:130px;
             height: calc(5rem / 1.4);
             font-size: calc(30px / 1.4);
         }
+        @media screen and (max-width:1200px) {
+            padding-left: 2%;
+        }
         @media screen and (max-width:1024px){
             height: calc(5rem / 1.875);
             font-size: calc(30px / 1.875);
@@ -78,21 +81,31 @@ $heigh_navbar_1920:130px;
     width: 3%;
     background-color: rgba(126,126,126,1);
     height: 100%;
-    z-index: 100;
-    padding-top: 10%;
+    z-index: 1000;
+    padding-top: 5%;
     overflow: hidden;
+    @media screen and (min-width:1920px) {
+        margin-top: calc($heigh_navbar_1920);
+    }
+    @media screen and (max-width:1440px){
+        margin-top: calc($heigh_navbar_1920 / 1.4);
+    }
+    @media screen and (max-width:1024px){
+        margin-top: calc($heigh_navbar_1920 / 1.875);
+    }
+    @media screen and (max-width:800px){
+        margin-top: calc($heigh_navbar_1920 / 2);
+    }
     @media screen and (max-width:600px){
         width: 0%;
     }
     &__li{
         position: relative;
-        display: block;
         display: flex;
         align-items: center;
-        justify-content: left;
+        justify-content: center;
         height: 5rem;
         font-size: 30px;
-        padding-left: 20%;
         font-family: 'American Typewriter';
         cursor: pointer;
         &:hover{
@@ -117,7 +130,6 @@ $heigh_navbar_1920:130px;
         @media screen and (max-width:600px){
             height: 5rem;
             font-size: 30px;
-            justify-content: center;
             padding-left: 0%;
         }
         @media screen and (max-width:550px) {
