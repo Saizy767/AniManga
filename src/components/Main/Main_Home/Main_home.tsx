@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC} from "react";
 
 import { useRecentlyAddedManga } from "../../../hooks/useRecentlyAddedManga";
 import { useLastManga } from "../../../hooks/useLastUpdatedManga";
@@ -11,8 +11,7 @@ import styles from './Main_home.module.scss'
 const Main: FC = () =>{
     const RecentlyAddedManga= useRecentlyAddedManga()
     const LastManga = useLastManga()
-    const AllManga = useAllManga()
-    
+    const AllManga :Array<object>= useAllManga('top/manga/1')
     return(
         <main className={styles.main_background}>
              <h1 className={styles.main__Category_name}>Recently Added</h1>
@@ -36,7 +35,7 @@ const Main: FC = () =>{
             <h1 className={styles.main__Category_name}>MANGA</h1>
             <div className={styles.main__form_card}>
                 { 
-                AllManga.map((el)=>{
+                AllManga.map((el: any)=>{
                     return <Card key={el.mal_id} minWidth='170px'
                                     {...el}
                                 />

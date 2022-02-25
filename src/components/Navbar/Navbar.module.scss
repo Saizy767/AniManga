@@ -8,6 +8,7 @@ $width_logo_1920: 360px;
     overflow: hidden;
     height:calc($heigh_navbar_1920 / 1.4) ;
     background:rgba(126, 126, 126, 1);
+    top: 0;
     z-index: 1000;
     @media screen and (min-width:1920px) {
         height: calc($heigh_navbar_1920);

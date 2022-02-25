@@ -8,6 +8,7 @@ export function useLastManga() {
         type: string,
         image_url: string,
         key: string,
+        volumes:number,
     }
     const [LastManga, SetLastManga] = useState<Array<Manga>>([])
 

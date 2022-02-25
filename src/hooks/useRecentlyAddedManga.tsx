@@ -8,6 +8,7 @@ export function useRecentlyAddedManga() {
         type: string,
         image_url: string,
         key: string,
+        volumes:number,
     }
     const [RecentlyAddedManga, SetAddedManga] = useState<Array<Manga>>([])
 

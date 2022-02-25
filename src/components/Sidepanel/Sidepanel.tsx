@@ -33,7 +33,10 @@ const SidePanel:FC<PropsType> = ({sidepanel}) => {
     )
 }
 
+const mapDispatchToProps = {
+    
+}
 const mapStateToProps = (state: rootReducerType) => ({ 
     sidepanel: state.sidepanel.activity
 })
-export default connect(mapStateToProps,null)(SidePanel)
+export default connect(mapStateToProps,mapDispatchToProps)(SidePanel)

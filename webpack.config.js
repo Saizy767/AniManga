@@ -12,7 +12,7 @@ module.exports={
         filename: '[name].[hash].js'
       },
     resolve:{
-      extensions: [".tsx", ".js",".ts"]
+      extensions: [".tsx", ".js",".ts",]
     },
     devServer:{
       static: './dist'
@@ -46,6 +46,19 @@ module.exports={
             loader: "babel-loader",
             options: {
               presets: ['@babel/preset-env',
+            ]
+            }
+          }
+        },
+        {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ['@babel/preset-env',
+                        '@babel/preset-typescript',
+                        '@babel/preset-react'
             ]
             }
           }
