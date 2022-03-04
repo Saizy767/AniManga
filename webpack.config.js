@@ -6,7 +6,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 module.exports={
     mode: 'development',
     entry: {main: './src/pages/index.tsx',
-            manga: './src/pages/[id].tsx'},
+            manga: './src/pages/[type]/[id].tsx',
+            error: './src/pages/404.tsx',
+            searchName: './src/pages/search/[name].tsx'},
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[hash].js'

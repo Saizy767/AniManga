@@ -23,8 +23,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/pages/index.tsx", "src/redux/reducer/AddingBtnChangeReducerts"  ],
+    "**/*.tsx",
+    "src/pages/index.tsx"],
   "exclude": [
     "node_modules"
   ]

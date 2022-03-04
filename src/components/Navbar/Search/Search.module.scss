@@ -1,12 +1,8 @@
-.navbar{
-    &__search{
-        float: left;
-        position: relative; 
-        width: 30%;
-        height: 100%;
-    }
-}
 .search{
+    float: left;
+    position: relative; 
+    width: 30%;
+    height: 100%;
     &__place{
         position: absolute;
         display: inline-grid;
@@ -25,11 +21,12 @@
         height: 70px;
         max-height: 70px;
         max-width: 500px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: #505050;
         padding-left: 5%;
         padding-right: 15%;
         font-size: 30px;
         mix-blend-mode: normal;
+        z-index: 15;
         border: 3px solid rgba(0, 0, 0, 0.25);
         box-sizing: border-box;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -70,6 +67,7 @@
         border: 3px solid rgba(0, 0, 0, 0.5);
         box-sizing: border-box;
         border-radius: 20px;
+        z-index: 20;
         right:0%;
         cursor: pointer;
         @media screen and (min-width:1920px) {
@@ -97,6 +95,33 @@
             width: calc(77px / 2.5);
             height: calc(70px / 2.5);
             border-radius: calc(20px / 2.5);
+        }
+    }
+    &__response{
+        &_ul{
+            position:absolute;
+            width:100%;
+            max-height:500%;
+            background-color:white;
+            top:80%;
+            padding-top:5%;
+            display: table;
+            list-style: none;
+        }
+        &_li{
+            position: relative;
+            width: 100%;
+            min-height: 45px;
+            height: 20%;
+            color: black;
+            text-align: center;
+            font-size: 20px;
+            border: black solid 1px;
+            vertical-align: middle;
+            cursor: pointer;
+            &:hover{
+                background-color: blanchedalmond;
+            }
         }
     }
 }

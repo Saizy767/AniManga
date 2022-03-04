@@ -13,17 +13,21 @@ interface PropsType{
     title:string,
     volumes: number,
     mal_id:number,
-    minWidth:string
+    minWidth:string,
+    type:string,
 }
 
-const Card: FC<PropsType> = ({image_url,title,mal_id,volumes, minWidth}) => {
-    const [isWatched, setIsWatched] = useState(false)
+const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth}) => {
 
+    const [isWatched, setIsWatched] = useState(false)
     return(
         <div className={styles.Card} style={{minWidth:minWidth}}>
-            <Link href={'/' + mal_id} as={`/${mal_id}`}>
+            <Link href={`/${type}/${mal_id}`} as={`/${type}/${mal_id}`}>
                 <div className={styles.Card__main}>
-                    <img src={image_url} className={styles.Card__logo}/>
+                    {image_url 
+                    ?<img className={styles.Card__logo} src={image_url}/>:
+                    <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
+                    }
                     <div className={styles.Card__name_box}>
                         <p className={styles.Card__name}>{title}</p>
                     </div>

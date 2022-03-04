@@ -1,22 +1,18 @@
 import { CHANGER_SEARCH_REQUEST } from "../types/types";
+import { ChangeSearchState } from "../action/SearchBoxAction";
 
-interface SearchBox{
-    text: string
+export interface SearchBox{
+    state: string
 }
 
 const initialState: SearchBox = {
-    text: '',
+    state: '',
 }
 
-interface ChangeSearchState{
-    type: string,
-    text: string
-}
-
-export const searchChangeReducer = (state = initialState, action:ChangeSearchState) : SearchBox=>{
+export const searchChangeReducer = (state = initialState, action:ChangeSearchState)=>{
     switch(action.type){
         case CHANGER_SEARCH_REQUEST:
-            return {...state, text: (action.text)} 
+            return {...state, state: action.action} 
         default: 
             return state
     }

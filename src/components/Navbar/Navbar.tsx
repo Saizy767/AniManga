@@ -7,13 +7,15 @@ import Search from "./Search/Search";
 
 import styles from './Navbar.module.scss'
 
-
-const Navbar: FC = () =>{
+interface Props{
+    topManga:any,
+}
+const Navbar: FC<Props> = ({topManga}) =>{
     return (
         <nav className ={styles.navbar}>
             <Guide_button/>   
             <Logo/>
-            <Search/>
+            <Search topManga={topManga}/>
             <Avatar/>
 
         </nav>

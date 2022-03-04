@@ -1,23 +1,23 @@
 import React, { FC} from "react";
 
-import { useRecentlyAddedManga } from "../../../hooks/useRecentlyAddedManga";
-import { useLastManga } from "../../../hooks/useLastUpdatedManga";
-import { useAllManga } from "../../../hooks/useAllManga";
 import Card from '../Card/Card'
 import {Carousel }from '../Carousel/Carousel'
 
 import styles from './Main_home.module.scss'
 
-const Main: FC = () =>{
-    const RecentlyAddedManga= useRecentlyAddedManga()
-    const LastManga = useLastManga()
-    const AllManga :Array<object>= useAllManga('top/manga/1')
+interface Props{
+    allManga:any,
+    lastUpdatedManga:any,
+    resentlyAddedManga:any,
+}
+
+const Main: FC<Props> = ({allManga, lastUpdatedManga, resentlyAddedManga}) =>{
     return(
         <main className={styles.main_background}>
              <h1 className={styles.main__Category_name}>Recently Added</h1>
             <Carousel>
                 { 
-                RecentlyAddedManga.map((el)=>{
+                resentlyAddedManga && resentlyAddedManga.map((el: any)=>{
                     return <Card key={el.mal_id} minWidth='190px'
                                 {...el}
                                 />
@@ -26,7 +26,7 @@ const Main: FC = () =>{
             <h1 className={styles.main__Category_name}>Updated Manga</h1>
             <Carousel>
                 { 
-                LastManga.map((el)=>{
+                lastUpdatedManga && lastUpdatedManga.map((el:any)=>{
                     return <Card key={el.mal_id} minWidth='190px'
                                     {...el}
                                     />
@@ -35,7 +35,7 @@ const Main: FC = () =>{
             <h1 className={styles.main__Category_name}>MANGA</h1>
             <div className={styles.main__form_card}>
                 { 
-                AllManga.map((el: any)=>{
+                allManga && allManga.map((el: any)=>{
                     return <Card key={el.mal_id} minWidth='170px'
                                     {...el}
                                 />

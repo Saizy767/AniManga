@@ -11,7 +11,8 @@
     "dev": "next dev && webpack --mode=development",
     "build": "next build && webpack --mode=production",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@svgr/webpack": "^6.2.1",
+    "@types/jest": "^27.4.1",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
@@ -48,6 +50,7 @@
     "css-loader": "^6.6.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.5.1",
     "next-images": "^1.8.4",
     "redux-thunk": "^2.4.1",
     "sass": "^1.49.7",
