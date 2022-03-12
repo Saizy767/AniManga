@@ -1,12 +1,14 @@
 import React, {FC, useEffect, useState} from "react"
-import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
+import {GetStaticProps, InferGetStaticPropsType } from "next"
+import NextNProgress from "../components/Elements/ProgressBar/ProgressBar"
+import Head from "next/head"
 
 import Navbar from "../components/Navbar/Navbar"
 import Sidepanel from '../components/Sidepanel/Sidepanel'
 import Main from '../components/Main/Main_Home/Main_home'
-import Head from "next/head"
 
 const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetStaticPropsType<typeof getStaticProps> ) => {
+
     const [isLastUpdatedManga, setIsLastUpdatedManga]= useState()
     const [isResentlyAddedManga, setIsResentlyAddedManga]= useState()
     const [isAllManga, setIsAllManga]= useState()
@@ -30,6 +32,13 @@ const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetSta
     },[AllManga.top])
     return(
       <>
+        <NextNProgress
+          color="orange"
+          startPosition={0.2}
+          stopDelayMs={300}
+          height={4}
+          showOnShallow={true}
+        />
         <Head>
           <title>Animanga</title>
         </Head>

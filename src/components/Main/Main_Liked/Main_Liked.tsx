@@ -38,18 +38,22 @@ const Main:FC<Props> = ({sidepanel}) =>{
                 <div className={styles.slider__box}>
                     <div className={styles.slider__place}>
                         <ul className={styles.slider__ul}>
-                            <li className={styles.slider__li}>
-                                <img className={styles.slider__image}></img>
-                                <div className={styles.slider__name}>
-                                    <span className={styles.slider__name_text}>Naruto</span>
-                                </div>
-                                <div className={styles.slider__delete} ref={hoverRef}>
-                                    {isHovered ?
-                                    <IoIosRemoveCircle className={styles.slider__delete_icon_active} title='Remove manga'/> :
-                                    <IoIosRemoveCircleOutline className={styles.slider__delete_icon} title='Remove manga'/>
-                                    }
-                                </div>
-                            </li>
+                                {[...Array(5)].map((volume, index)=>{
+                                const [hoverRef, isHovered]= useHover<HTMLDivElement>()
+                                index+=1
+                                return(
+                                <li className={styles.slider__li}>
+                                    <img className={styles.slider__image}></img>
+                                    <div className={styles.slider__name}>
+                                        <span className={styles.slider__name_text}>Manga</span>
+                                    </div>
+                                    <div className={styles.slider__delete} ref={hoverRef}>
+                                        {isHovered ?
+                                        <IoIosRemoveCircle className={styles.slider__delete_icon_active} title='Remove manga'/> :
+                                        <IoIosRemoveCircleOutline className={styles.slider__delete_icon} title='Remove manga'/>
+                                        }
+                                    </div>
+                                </li>)})}
                         </ul>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import NextNProgress from "../components/Elements/ProgressBar/ProgressBar";
 import Main from "../components/Main/Main_WatchLater/Main_WatchLater";
 import Navbar from "../components/Navbar/Navbar";
 import Sidepanel from "../components/Sidepanel/Sidepanel";
@@ -14,7 +15,14 @@ const WatchLaterPage: InferGetServerSidePropsType<typeof getServerSideProps> = (
         }
       },[TopManga.top])
     return(
-        <>
+        <>  
+            <NextNProgress
+              color="orange"
+              startPosition={0.2}
+              stopDelayMs={300}
+              height={4}
+              showOnShallow={true}
+            />
             <Head>
                 <title>Animanga</title>
             </Head>

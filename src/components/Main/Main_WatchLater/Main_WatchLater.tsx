@@ -12,8 +12,6 @@ interface Props{
     sidepanel:boolean
 }
 const Main:FC<Props> = ({sidepanel}) =>{
-    const [hoverRef, isHovered] = useHover<HTMLDivElement>()
-
     return(
         <>
         <main className={ sidepanel ? styles.main__background_active : styles.main__background}>
@@ -38,13 +36,14 @@ const Main:FC<Props> = ({sidepanel}) =>{
                 <div className={styles.slider__box}>
                     <div className={styles.slider__place}>
                         <ul className={styles.slider__ul}>
-                        {[...Array(10)].map((volume, index)=>{
+                        {[...Array(15)].map((volume, index)=>{
+                                const [hoverRef, isHovered]= useHover<HTMLDivElement>()
                                 index+=1
                                 return(
                                 <li className={styles.slider__li}>
                                     <img className={styles.slider__image}></img>
                                     <div className={styles.slider__name}>
-                                        <span className={styles.slider__name_text}>Naruto</span>
+                                        <span className={styles.slider__name_text}>Manga</span>
                                     </div>
                                     <div className={styles.slider__delete} ref={hoverRef}>
                                         {isHovered ?

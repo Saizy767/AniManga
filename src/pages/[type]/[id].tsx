@@ -1,6 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import React, { FC, useEffect, useState } from "react";
+import NextNProgress from "../../components/Elements/ProgressBar/ProgressBar";
 
 import Main from "../../components/Main/Main_manga/Main_manga";
 import Navbar from "../../components/Navbar/Navbar";
@@ -24,6 +25,13 @@ const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
   },[characters])
     return(
         <>
+        <NextNProgress
+          color="orange"
+          startPosition={0.2}
+          stopDelayMs={300}
+          height={4}
+          showOnShallow={true}
+        />
         <Head>
                 <title>{manga.title_english || manga.title}</title>
         </Head>

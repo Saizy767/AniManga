@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidepanel from "../../components/Sidepanel/Sidepanel";
 import Main from "../../components/Main/Main_search/Main_search"
 import Head from "next/head";
+import NextNProgress from "../../components/Elements/ProgressBar/ProgressBar";
 
 const SearchPage:FC<InferGetServerSidePropsType<typeof getServerSideProps>>=({searchManga, TopManga})=>{
     const [isTopManga, setIsTopManga]= useState()
@@ -22,6 +23,13 @@ const SearchPage:FC<InferGetServerSidePropsType<typeof getServerSideProps>>=({se
       },[searchManga.results])
     return(
         <>
+            <NextNProgress
+            color="orange"
+            startPosition={0.2}
+            stopDelayMs={300}
+            height={4}
+            showOnShallow={true}
+            />
             <Head>
                 <title>Animanga</title>
             </Head>

@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidepanel from "../../components/Sidepanel/Sidepanel";
 import Main from '../../components/Main/Main_Top/Main_Top'
+import NextNProgress from "../../components/Elements/ProgressBar/ProgressBar";
 
 interface Props{
     TopManga:any
@@ -17,6 +18,13 @@ const topTen :FC<Props> = ({TopManga})=>{
       },[TopManga.top])
     return(
         <>
+            <NextNProgress
+              color="orange"
+              startPosition={0.2}
+              stopDelayMs={300}
+              height={4}
+              showOnShallow={true}
+            />
             <Navbar topManga={isTopManga}/>
             <Sidepanel/>
             <Main/>
