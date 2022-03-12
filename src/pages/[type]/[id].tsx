@@ -1,6 +1,6 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import Main from "../../components/Main/Main_manga/Main_manga";
 import Navbar from "../../components/Navbar/Navbar";
@@ -8,15 +8,28 @@ import SidePanel from "../../components/Sidepanel/Sidepanel";
 
 
 const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({manga, characters, TopManga}) =>{
-    const topManga = TopManga.top
+  const [isTopManga, setIsTopManga]= useState()
+  const [isCharacter, setIsCharacter] = useState()
+
+  useEffect(()=>{
+    if(TopManga.top){
+      setIsTopManga(TopManga.top)
+    }
+  },[TopManga.top])
+
+  useEffect(()=>{
+    if(characters.characters){
+      setIsCharacter(characters.characters.slice(0,50))
+    }
+  },[characters])
     return(
         <>
         <Head>
                 <title>{manga.title_english || manga.title}</title>
         </Head>
-        <Navbar topManga={topManga}/>
+        <Navbar topManga={isTopManga}/>
         <SidePanel/>
-        <Main manga={manga} {...characters}/>
+        <Main manga={manga} characters={isCharacter}/>
         </>
     )
 }

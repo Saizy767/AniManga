@@ -5,28 +5,38 @@ $heigh_navbar_1920:130px;
     width: 20%;
     background-color: rgba(126,126,126,1);
     height: 100%;
-    z-index: 1000;
-    padding-top: 5%;
+    z-index: 100;
     top: 0;
     overflow: hidden;
     @media screen and (min-width:1920px) {
-        margin-top: calc($heigh_navbar_1920);
+        padding-top: 250px;
     }
     @media screen and (max-width:1440px){
-        margin-top: calc($heigh_navbar_1920 / 1.4);
+        padding-top: 150px
     }
     @media screen and (max-width:1024px){
-        margin-top: calc($heigh_navbar_1920 / 1.875);
+        padding-top: 130px;
     }
     @media screen and (max-width:800px){
-        margin-top: calc($heigh_navbar_1920 / 2);
+        padding-top: 100px;
     }
     @media screen and (max-width:600px){
         width: 100%;
-        margin-top: calc($heigh_navbar_1920 / 2);
+        padding-top: 80px;
     }
     @media screen and (max-width:325px){
-        margin-top: calc($heigh_navbar_1920 / 2.2);
+        padding-top: 60px;
+    }
+    &__search{
+        position: relative;
+        display: none;
+        width: 100%;
+        height: auto;
+        @media screen and (max-width:600px) {
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
     }
     &__li{
         position: relative;
@@ -83,23 +93,23 @@ $heigh_navbar_1920:130px;
     width: 3%;
     background-color: rgba(126,126,126,1);
     height: 100%;
-    z-index: 1000;
+    z-index: 100;
     padding-top: 5%;
     overflow: hidden;
     @media screen and (min-width:1920px) {
-        margin-top: calc($heigh_navbar_1920);
+        padding-top: 250px;
     }
     @media screen and (max-width:1440px){
-        margin-top: calc($heigh_navbar_1920 / 1.4);
+        padding-top: 150px;
     }
     @media screen and (max-width:1024px){
-        margin-top: calc($heigh_navbar_1920 / 1.875);
+        padding-top: 130px;
     }
     @media screen and (max-width:800px){
-        margin-top: calc($heigh_navbar_1920 / 2);
+        padding-top: 100px;
     }
     @media screen and (max-width:600px){
-        width: 0%;
+        width: 0%
     }
     &__li{
         position: relative;

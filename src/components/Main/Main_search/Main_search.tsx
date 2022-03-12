@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useRouter } from "next/router";
 
-import Card from "../Card/Card";
+import Card from "../../Elements/Card/Card";
 
 import styles from "./Main_search.module.scss"
 

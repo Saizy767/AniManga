@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import { connect } from "react-redux";
-import { AddingBtnChangeAction } from "src/redux/action/AddingBtnChangeAction";
 
 import styles from "./Adding_btn.module.scss"
 

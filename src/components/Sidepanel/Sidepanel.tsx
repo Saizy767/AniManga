@@ -6,6 +6,7 @@ import { rootReducerType } from "../../redux/rootReducer/rootReducer";
 import { Array_category } from "./Categoty";
 
 import styles from './Sidepanel.module.scss'
+import Search from "../Navbar/Search/Search";
 
 interface PropsType {
     sidepanel: boolean,
@@ -15,6 +16,9 @@ const SidePanel:FC<PropsType> = ({sidepanel}) => {
     return (
         <>
         <aside className={sidepanel ? styles.sidepanel_active : styles.sidepanel}>
+                <div className={styles.sidepanel_active__search}>
+                    <Search/>
+                </div>
                 {Array_category.map((el)=>{
                     return(
                     <Link href={el.url} key={el.id}>
@@ -22,7 +26,7 @@ const SidePanel:FC<PropsType> = ({sidepanel}) => {
                             {sidepanel ?
                             <li className={styles.sidepanel_active__li} key={el.id}>{el.icon}{el.name}</li>
                             :
-                            <li className={styles.sidepanel__li} key={el.id}>{el.icon}</li>
+                            <li className={styles.sidepanel__li} key={el.id}  title={el.name}>{el.icon}</li>
                             }
                         </div>
                     </Link>
@@ -33,10 +37,7 @@ const SidePanel:FC<PropsType> = ({sidepanel}) => {
     )
 }
 
-const mapDispatchToProps = {
-    
-}
 const mapStateToProps = (state: rootReducerType) => ({ 
     sidepanel: state.sidepanel.activity
 })
-export default connect(mapStateToProps,mapDispatchToProps)(SidePanel)
+export default connect(mapStateToProps,null)(SidePanel)

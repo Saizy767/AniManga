@@ -1,21 +1,33 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidepanel from "../../components/Sidepanel/Sidepanel";
 import Main from "../../components/Main/Main_search/Main_search"
 import Head from "next/head";
 
 const SearchPage:FC<InferGetServerSidePropsType<typeof getServerSideProps>>=({searchManga, TopManga})=>{
-    const topManga = TopManga.top
-    const result = searchManga.results
+    const [isTopManga, setIsTopManga]= useState()
+    const [isSearchResult, setIsSearchResult]= useState()
+
+    useEffect(()=>{
+      if(TopManga.top){
+        setIsTopManga(TopManga.top)
+      }
+    },[TopManga.top])
+
+    useEffect(()=>{
+        if(searchManga.results){
+            setIsSearchResult(searchManga.results)
+        }
+      },[searchManga.results])
     return(
         <>
             <Head>
                 <title>Animanga</title>
             </Head>
-            <Navbar topManga={topManga}/>
+            <Navbar topManga={isTopManga}/>
             <Sidepanel/>
-            <Main searchManga={result}/>
+            <Main searchManga={isSearchResult}/>
         </>
     )
 }

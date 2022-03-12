@@ -23,7 +23,7 @@ icon: <IoHomeSharp className={styles.category__icon}/>,
 const Watch_later:Category ={
 id:2,
 name:'Watch Later',
-url:'/watchlater',
+url:'/watch_later',
 icon:<AiOutlineClockCircle className={styles.category__icon}/>
 }
 const Likely:Category ={

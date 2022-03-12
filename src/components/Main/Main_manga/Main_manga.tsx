@@ -2,28 +2,30 @@ import Link from "next/link";
 import React, { FC, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineLike, AiOutlineCheck, AiFillLike, AiOutlineStar, AiFillStar} from "react-icons/ai";
 
-import Adding_btn from "../Adding_btn/Adding_btn";
+import Adding_btn from "../../Elements/Adding_btn/Adding_btn";
 
 import first from './Main_manga.module.scss'
 import second from './Second_manga.module.scss'
 
-import button from '../Adding_btn/Adding_btn.module.scss'
-import { Carousel } from "../Carousel/Carousel";
+import button from '../../Elements/Adding_btn/Adding_btn.module.scss'
+import { Carousel } from "../../Elements/Carousel/Carousel";
+import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
+import { connect } from "react-redux";
   
 interface Props{
     characters:any,
     manga:any,
+    sidepanel:boolean,
 }
 
-const Main: FC<Props> = ({manga, characters}) =>{
-    const Characters = characters.slice(0,50)
+const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     const Discription : Array<any> =[
         {name: 'Rank', value: manga.rank, id: 3},
         {name: 'Top of popularity', value: manga.popularity, id:6},
     ]
     if(manga.themes){
         Discription.push({name: 'Themes', value: manga.themes.map((el:any) =>
-        {return <p className={first.row__personal__theme} key={el.mal_id}>{el.name + ' '}</p> }) || 'Not added yet',
+        {return <p className={first.row__personal__theme} key={el.mal_id}>{el.name + ' '}</p> }),
         id: 5})
     }
     if(manga.authors){
@@ -58,11 +60,11 @@ const Main: FC<Props> = ({manga, characters}) =>{
     const[isHovered, setIsHovered] =useState(0)
     return(
         <main>
-            <section className={first.main_background}>
+            <section className={sidepanel ? first.main__background_active : first.main__background}>
             <div className={first.main__box}>
                 <div className={first.main__picture_box}>
                     <img src={manga.image_url} alt='logo' className={first.main__picture}/>
-                    <div className={first.main__picture_watch_later}>
+                    <div className={first.main__picture_buttons}>
                         <div className={first.main__watch_btn} onClick={()=>setIsWatched(!isWatched)}>
                             { isWatched ?   <Adding_btn text='Added' element={<AiOutlineCheck className={button.adding_btn_icon}/>}/>
                             :               <Adding_btn text='Watch later' element={<AiOutlineClockCircle className={button.adding_btn_icon}/>}/> 
@@ -116,7 +118,7 @@ const Main: FC<Props> = ({manga, characters}) =>{
                 </div>
             </div>
             </section>
-            <section className={second.main__background}>
+            <section className={sidepanel ? second.main__background_active : second.main__background}>
                 <div className={second.main__box}>
                     <div className={second.score}>
                         <div className={second.score__header}>
@@ -169,7 +171,7 @@ const Main: FC<Props> = ({manga, characters}) =>{
                             <span className={second.characters__header_text}>Characters</span>
                         </div>
                         <Carousel>
-                            {Characters.map((el:any)=>{
+                            {characters.map((el:any)=>{
                                 return(
                                     <div className={second.card}>
                                         <img src={el.image_url} className={second.card__image}></img>
@@ -187,4 +189,7 @@ const Main: FC<Props> = ({manga, characters}) =>{
     )
 }
 
-export default Main
+const mapStateToProps= (state:rootReducerType)=>({
+    sidepanel: state.sidepanel.activity
+})
+export default connect(mapStateToProps,null)(Main)

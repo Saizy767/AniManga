@@ -15,7 +15,9 @@ const Navbar: FC<Props> = ({topManga}) =>{
         <nav className ={styles.navbar}>
             <Guide_button/>   
             <Logo/>
-            <Search topManga={topManga}/>
+            <div className={styles.navbar__search}>
+                <Search topManga={topManga}/>
+            </div>
             <Avatar/>
 
         </nav>

@@ -9,6 +9,8 @@ $width_logo_1920: 360px;
     background:rgba(126, 126, 126, 1);
     top: 0;
     z-index: 1000;
+    display: flex;
+    flex-direction: row;
     @media screen and (min-width:1920px) {
         height: calc($heigh_navbar_1920);
     }
@@ -23,5 +25,13 @@ $width_logo_1920: 360px;
     }
     @media screen and (max-width:325px){
         height: calc($heigh_navbar_1920 / 2.2);
+    }
+    &__search{
+        position: relative; 
+        flex: 10;
+        height: 100%;
+        @media screen and (max-width:600px) {
+            display: none;
+        }
     }
 }

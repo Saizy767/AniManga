@@ -1,29 +1,45 @@
-import React, {FC} from "react"
+import React, {FC, useEffect, useState} from "react"
 import { GetServerSideProps, InferGetServerSidePropsType } from "next"
-import { connect } from "react-redux"
 
 import Navbar from "../components/Navbar/Navbar"
 import Sidepanel from '../components/Sidepanel/Sidepanel'
 import Main from '../components/Main/Main_Home/Main_home'
-import { rootReducerType } from "src/redux/rootReducer/rootReducer"
 import Head from "next/head"
 
 const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-    const lastUpdatedManga = LastUpdatedManga.top.slice(0,10)
-    const resentlyAddedManga = ResentlyAddedManga.top.slice(0,10)
-    const allManga = AllManga.top
+    const [isLastUpdatedManga, setIsLastUpdatedManga]= useState()
+    const [isResentlyAddedManga, setIsResentlyAddedManga]= useState()
+    const [isAllManga, setIsAllManga]= useState()
+    
+    useEffect(()=>{
+      if(LastUpdatedManga.top){
+        setIsLastUpdatedManga(LastUpdatedManga.top.slice(0,10))
+      }
+    },[LastUpdatedManga.top])
+
+    useEffect(()=>{
+      if(ResentlyAddedManga.top){
+        setIsResentlyAddedManga(ResentlyAddedManga.top.slice(0,10))
+      }
+    },[ResentlyAddedManga.top])
+
+    useEffect(()=>{
+      if(AllManga.top){
+        setIsAllManga(AllManga.top)
+      }
+    },[AllManga.top])
     return(
       <>
-      <Head>
-        <title>Animanga</title>
-      </Head>
-        <section>
-            <Navbar topManga={allManga}/>
-            <Sidepanel/>
-            <Main allManga={allManga}
-                  lastUpdatedManga={lastUpdatedManga}
-                  resentlyAddedManga={resentlyAddedManga}/>
-        </section>
+        <Head>
+          <title>Animanga</title>
+        </Head>
+          <section>
+              <Navbar topManga={isAllManga}/>
+              <Sidepanel/>
+              <Main allManga={isAllManga}
+                    lastUpdatedManga={isLastUpdatedManga}
+                    resentlyAddedManga={isResentlyAddedManga}/>
+          </section>
       </>
     )
 }
@@ -45,11 +61,5 @@ const [AllManga, LastUpdatedManga, ResentlyAddedManga] = await Promise.all([
   }
 }
 
-const mapStateToProps=(state: rootReducerType)=>({
-  searchResult : state.search_box.state
-})
 
-
-
-
-export default connect(mapStateToProps,null)(Home)
+export default Home
