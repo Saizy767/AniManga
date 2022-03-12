@@ -35,7 +35,7 @@ const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params.id // add promise because id should be a number 
+  const id = context.params.id 
   const [mangaRes, charactersRes, TopMangaRes] = await Promise.all([ 
       fetch(`https://api.jikan.moe/v3/manga/${id}`),
       fetch(`https://api.jikan.moe/v3/manga/${id}/characters`),

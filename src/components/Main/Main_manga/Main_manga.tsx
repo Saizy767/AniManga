@@ -38,7 +38,7 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     }
     if (manga.genres){
         Discription.push({name: 'Type',value: manga.genres.map((el:any)=>
-        {return <p className={first.row__personal__type}>{el.name + ' '}</p>}),
+        {return <p className={first.row__personal__type} key={Math.random()}>{el.name + ' '}</p>}),
         id: 1})
     }
     if (manga.chapters){
@@ -159,7 +159,7 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                             {[...Array(30)].map((volume, index)=>{
                                 index+=1
                                 return(
-                                    <div className={second.reader__row} role='button'>
+                                    <div className={second.reader__row} role='button' key={index}>
                                         <span className={second.reader__volume}>Volume {index}</span>
                                     </div>
                                 )
@@ -173,7 +173,7 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                         <Carousel>
                             {characters.map((el:any)=>{
                                 return(
-                                    <div className={second.card}>
+                                    <div className={second.card} key={Math.random()}>
                                         <img src={el.image_url} className={second.card__image}></img>
                                         <span className={second.card__name}>{el.name}</span>
                                     </div>

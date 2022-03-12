@@ -72,13 +72,15 @@
         height: 100%;
         &_poster{
             position: relative;
-            width: 50%;
-            min-height: 290px;
-            max-height: 310px;
+            width: 30%;
+            height: 290px;
             background-color: gray;
             left: 50%;
             transform: translateX(-50%);
-            max-width: 200px;
+            min-width: 200px;
+            @media  screen and (min-width:1400px) {
+                height: 500px;
+            }
         }
     }
     &__text{
@@ -94,6 +96,9 @@
         position: relative;
         display: block;
         font-size: 30px;
+        @media  screen and (min-width:1400px) {
+            font-size: 40px;;
+        }
     }
     &__description{
         position: relative;
@@ -106,6 +111,9 @@
         display: block;
         flex: 1;
         font-size: 20px;
+        @media  screen and (min-width:1400px) {
+            font-size: 30px;;
+        }
     }
     &__row{
         position: relative;
@@ -122,8 +130,12 @@
         align-items: center;
         justify-content: center;
         &_name{
+            font-size: 20px;
             margin-top: 2%;
             color: white;
+            @media  screen and (min-width:1400px) {
+                font-size: 30px;;
+            }
         }
     }
 }
@@ -154,7 +166,6 @@
         display: flex;
         border: white 1px solid;
         flex-direction: row;
-        
     }
     &__image{
         position: relative;
@@ -164,17 +175,27 @@
         background-color: white;
         flex: 1;
         cursor: pointer;
+        min-width: 50px;
+        @media  screen and (min-width:1400px) {
+            height: 150px;
+        }
     }
     &__name{
         position: relative;
         font-size: 25px;
         vertical-align: middle;
         flex: 8;
-        cursor: pointer;
+        @media  screen and (min-width:1400px) {
+            font-size: 45px;;
+        }
         &_text{
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            cursor: pointer;
+            &:hover{
+                color: orange;
+            }
         }
     }
     &__delete{
@@ -183,15 +204,23 @@
         flex: 1;
         justify-content: center;
         align-items: center;
+        @media screen and (max-width:1024px) {
+            flex: 2;
+        }
+        @media screen and (max-width:450px) {
+            flex: 3;
+        }
         &_icon{
             position: absolute;
             width: 50%;
             height: 50%;
+            cursor: pointer;
             &_active{
                 position: absolute;
                 width: 50%;
                 height: 50%;
                 color: red;
+                cursor: pointer;
             }
         }
     }

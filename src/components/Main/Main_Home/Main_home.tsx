@@ -1,4 +1,4 @@
-import React, { FC} from "react";
+import React, { FC, useRef} from "react";
 import { connect } from "react-redux";
 import { rootReducerType } from "src/redux/rootReducer/rootReducer";
 
@@ -44,6 +44,7 @@ const Main: FC<Props> = ({allManga, lastUpdatedManga, resentlyAddedManga, sidepa
                                 />
                 })}
             </div>
+            <div></div>
         </main>
     )
 }

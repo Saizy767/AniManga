@@ -14,26 +14,26 @@ interface PropsType {
 
 const SidePanel:FC<PropsType> = ({sidepanel}) => {  
     return (
-        <>
         <aside className={sidepanel ? styles.sidepanel_active : styles.sidepanel}>
                 <div className={styles.sidepanel_active__search}>
                     <Search/>
                 </div>
-                {Array_category.map((el)=>{
-                    return(
-                    <Link href={el.url} key={el.id}>
-                        <div>
-                            {sidepanel ?
-                            <li className={styles.sidepanel_active__li} key={el.id}>{el.icon}{el.name}</li>
-                            :
-                            <li className={styles.sidepanel__li} key={el.id}  title={el.name}>{el.icon}</li>
-                            }
-                        </div>
-                    </Link>
+                <div className={styles.sidepanel_active__category}>
+                    {Array_category.map((el)=>{
+                        return(
+                        <Link href={el.url} key={el.id}>
+                            <div>
+                                {sidepanel ?
+                                <li className={styles.sidepanel_active__li} key={el.id}>{el.icon}{el.name}</li>
+                                :
+                                <li className={styles.sidepanel__li} key={el.id}  title={el.name}>{el.icon}</li>
+                                }
+                            </div>
+                        </Link>
+                        )}
                     )}
-                )}
+                </div>
         </aside>
-        </>
     )
 }
 
