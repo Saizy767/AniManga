@@ -1,23 +1,31 @@
 import Link from "next/link";
-import React, { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import styles from './Top_Card.module.scss'
 
 interface Props{
     name:string,
     id:number,
+    image: string,
+    shortname:string,
 }
-const TopCard:FC<Props> = ({name, id}) =>{
-    const [isLoadImg, setIsLoadImg] = useState()
+const TopCard:FC<Props> = ({name, id, image, shortname}) =>{
+    const [isLoadImg, setIsLoadImg] = useState('')
     const [isLoadText, setIsLoadText] = useState('')
 
     useEffect(()=>{
         setIsLoadText(name)
     },[name])
+
+    useEffect(()=>{
+        setIsLoadImg(image)
+    },[image])
+    
     return (
         <div className={styles.Card}>
-            <Link href={`/${name}`} as={`/${name}`}>
+            <Link href={`/top/${id}${shortname}`} as={`/top/${id}${shortname}`}>
                 <div className={styles.Card__main}>
-                    {isLoadImg? <img className={styles.Card__logo} />:
+                    {isLoadImg? <img className={styles.Card__logo} src={image}/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
                     }
                     <div className={styles.Card__name_box}>

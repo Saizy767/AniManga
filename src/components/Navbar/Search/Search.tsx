@@ -57,8 +57,8 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
         return () => clearTimeout(delayDebounceFn)
     }, [searchResult])
     return(
-        <div className={styles.search}>
-            <div className={styles.search__place} ref={searchRef}>
+        <>
+            <div className={styles.search} ref={searchRef}>
                 <input type="text" className={styles.search__input}
                                     onClick={onClick}
                                     onFocus={onFocus}
@@ -89,7 +89,7 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
                         })}
                     </ul>}
             </div>
-        </div>
+        </>
 
     )
 }

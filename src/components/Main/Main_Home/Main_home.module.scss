@@ -27,20 +27,24 @@
         padding-left: 22%;
         padding-right: 11%;
         @media screen and (max-width:1300px) {
-            padding-top: 7.5%;
+            margin-top: 7.5%;
+            margin-left: 5%;
         }
         @media screen and (max-width:800px) {
-            padding-top: 8.2%;
+            margin-top: 8.2%;
         }
         @media screen and (max-width:600px) {
-            padding-top: 15.8%;
-            padding-left: 0%;
+            margin-top: 15.8%;
+            margin-left: 0%;
         }
     }
     &__form_card{
         display: grid;
         grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
         grid-gap: .5rem;
+        @media screen and (max-width:600px) {
+            grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+        }
         &_tags{
             display: flex;
             flex-direction: row;

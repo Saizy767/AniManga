@@ -7,6 +7,7 @@ import Search from "./Search/Search";
 
 import styles from './Navbar.module.scss'
 
+
 interface Props{
     topManga:any,
 }

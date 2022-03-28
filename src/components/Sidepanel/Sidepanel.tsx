@@ -11,11 +11,10 @@ import styles from './Sidepanel.module.scss'
 
 interface PropsType {
     sidepanel?: boolean,
-    sidepanelChangerAction?:()=>void,
     mobileAdaptive?:string,
 }
 
-const SidePanel:FC<PropsType> = ({sidepanel, sidepanelChangerAction,mobileAdaptive},) => {  
+const SidePanel:FC<PropsType> = ({sidepanel,mobileAdaptive},) => {  
     return (
         <aside className={sidepanel ? styles.sidepanel_active : styles.sidepanel} style={{width:mobileAdaptive}}>
                 <div className={styles.sidepanel_active__search}>
@@ -27,7 +26,7 @@ const SidePanel:FC<PropsType> = ({sidepanel, sidepanelChangerAction,mobileAdapti
                         <Link href={el.url} key={el.id}>
                             <div>
                                 {sidepanel ?
-                                <li className={styles.sidepanel_active__li} key={el.id} onClick={()=>sidepanelChangerAction()}>{el.icon}{el.name}</li>
+                                <li className={styles.sidepanel_active__li} key={el.id}>{el.icon}{el.name}</li>
                                 :
                                 <li className={styles.sidepanel__li} key={el.id} title={el.name}>{el.icon}</li>
                                 }

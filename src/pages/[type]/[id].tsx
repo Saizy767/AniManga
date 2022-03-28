@@ -8,18 +8,19 @@ import Navbar from "../../components/Navbar/Navbar";
 import SidePanel from "../../components/Sidepanel/Sidepanel";
 
 
-const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({manga, characters, TopManga}) =>{
+const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({manga, characters, topManga}) =>{
   const [isTopManga, setIsTopManga]= useState()
   const [isCharacter, setIsCharacter] = useState()
 
-  useEffect(()=>{
-    if(TopManga.top){
-      setIsTopManga(TopManga.top)
-    }
-  },[TopManga.top])
 
   useEffect(()=>{
-    if(characters.characters){
+    if(topManga?.top){
+      setIsTopManga(topManga.top)
+    }
+  },[topManga?.top])
+
+  useEffect(()=>{
+    if(characters?.characters){
       setIsCharacter(characters.characters.slice(0,50))
     }
   },[characters])
@@ -33,7 +34,7 @@ const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
           showOnShallow={true}
         />
         <Head>
-                <title>{manga.title_english || manga.title}</title>
+                <title>{manga?.title_english || manga?.title}</title>
         </Head>
         <Navbar topManga={isTopManga}/>
         <SidePanel/>
@@ -43,20 +44,19 @@ const MangaPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params.id 
-  const [mangaRes, charactersRes, TopMangaRes] = await Promise.all([ 
-      fetch(`https://api.jikan.moe/v3/manga/${id}`),
-      fetch(`https://api.jikan.moe/v3/manga/${id}/characters`),
-      fetch(`https://api.jikan.moe/v3/top/manga/1`),
+    let id:string|string[] =context.params.id;
+    const [mangaRes, charactersRes, topMangaRes] = await Promise.all([ 
+        fetch(`https://api.jikan.moe/v3/manga/${id}`),
+        fetch(`https://api.jikan.moe/v3/manga/${id}/characters`),
+        fetch(`https://api.jikan.moe/v3/top/manga/1`),
+      ])
+    const [manga, characters, topManga] = await Promise.all([
+      mangaRes.json(),
+      charactersRes.json(),
+      topMangaRes.json()
     ])
-  const [manga, characters, TopManga] = await Promise.all([
-    mangaRes.json(),
-    charactersRes.json(),
-    TopMangaRes.json()
-  ])
   return {
-    props: {manga, characters, TopManga},
+    props: {manga, characters, topManga},
   }
 }
-
 export default MangaPage

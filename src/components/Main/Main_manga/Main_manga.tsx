@@ -13,42 +13,43 @@ import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 import { connect } from "react-redux";
   
 interface Props{
-    characters:any,
-    manga:any,
-    sidepanel:boolean,
+    characters?:any,
+    manga?:any,
+    sidepanel?:boolean,
 }
 
 const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     const Discription : Array<any> =[
-        {name: 'Rank', value: manga.rank, id: 3},
-        {name: 'Top of popularity', value: manga.popularity, id:6},
+        {name: 'Top of popularity', value: manga?.popularity, id:6},
+        {name: 'Rank', value: manga?.rank, id: 3},
     ]
-    if(manga.themes){
+    
+    if(manga && manga.themes){
         Discription.push({name: 'Themes', value: manga.themes.map((el:any) =>
         {return <p className={first.row__personal__theme} key={el.mal_id}>{el.name + ' '}</p> }),
         id: 5})
     }
-    if(manga.authors){
+    if(manga && manga.authors){
         Discription.push({name: 'Authors', value: manga.authors.map((el:any) =>
         {return <p className={first.row__personal__author} key={el.mal_id}>{el.name + ' '}</p>}), 
         id: 4})
     }
-    if(manga.published && manga.published.prop.from.year){
+    if(manga && manga.published && manga.published.prop.from.year){
         Discription.push({name: 'Year of puplished', value: manga.published.prop.from.year, id: 2})
     }
-    if (manga.genres){
+    if (manga && manga.genres){
         Discription.push({name: 'Type',value: manga.genres.map((el:any)=>
         {return <p className={first.row__personal__type} key={Math.random()}>{el.name + ' '}</p>}),
         id: 1})
     }
-    if (manga.chapters){
+    if (manga && manga.chapters){
         Discription.push({name: 'Chapters', value: manga.chapters || 'Not added yet', id: 7})
     }
-    if (manga.related && manga.related.Prequel){
+    if (manga && manga.related && manga.related.Prequel){
         Discription.push({name: 'Prequel', value: manga.related.Prequel.map((el: any)=>
         <Link href={`/${el.mal_id}`} key={el.mal_id}><p className={first.row__personal__interquel} key={el.mal_id}>{el.name}</p></Link>), id:8 })
     }
-    if (manga.related && manga.related.Sequel){
+    if (manga && manga.related && manga.related.Sequel){
         Discription.push({name: 'Sequel', value: manga.related.Sequel.map((el:any) => 
         <Link href={`/${el.mal_id}`} key={el.mal_id}><p className={first.row__personal__interquel} key={el.mal_id}>{el.name}</p></Link >), id: 9})
     }
@@ -157,10 +158,10 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                         </div>
                         <div className={second.reader__box}>
                             {[...Array(30)].map((volume, index)=>{
-                                index+=1
+                                index-=30
                                 return(
                                     <div className={second.reader__row} role='button' key={index}>
-                                        <span className={second.reader__volume}>Volume {index}</span>
+                                        <span className={second.reader__volume}>Volume {Math.abs(index)}</span>
                                     </div>
                                 )
                             })}

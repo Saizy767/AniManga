@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 import {IoIosRemoveCircleOutline, IoIosRemoveCircle} from 'react-icons/io'
 
-import Avatar from '../../Navbar/Avatar/Avatar'
 import { useHover } from "../../../hooks/useHover";
 
 import styles from './Main_Liked.module.scss'
+import Avatar_User from "../../../components/Elements/Avatar_User/Avatar_User";
 
 interface Props{
     sidepanel:boolean
@@ -31,7 +31,7 @@ const Main:FC<Props> = ({sidepanel}) =>{
                         </div>
                         <hr className={styles.selected__row}/>
                         <div className={styles.selected__user}>
-                            <Avatar/>
+                            <Avatar_User/>
                             <span className={styles.selected__user_name}>User Name</span>
                         </div>
                 </div>

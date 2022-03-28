@@ -33,6 +33,9 @@
         cursor: pointer;
         max-height: 310px;
         min-height: 290px;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
         @media screen and (max-width:450px){
             max-height: none;
             width: 100%;

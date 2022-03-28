@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react"
-import {GetStaticProps, InferGetStaticPropsType } from "next"
+import {GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
 import NextNProgress from "../components/Elements/ProgressBar/ProgressBar"
 import Head from "next/head"
 
@@ -7,7 +7,8 @@ import Navbar from "../components/Navbar/Navbar"
 import Sidepanel from '../components/Sidepanel/Sidepanel'
 import Main from '../components/Main/Main_Home/Main_home'
 
-const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetStaticPropsType<typeof getStaticProps> ) => {
+
+const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetServerSidePropsType<typeof getServerSideProps> ) => {
 
     const [isLastUpdatedManga, setIsLastUpdatedManga]= useState()
     const [isResentlyAddedManga, setIsResentlyAddedManga]= useState()
@@ -15,7 +16,7 @@ const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetSta
 
     useEffect(()=>{
       if(LastUpdatedManga.top){
-        setIsLastUpdatedManga(LastUpdatedManga.top.slice(0,10))
+        setIsLastUpdatedManga(LastUpdatedManga.top.slice(0,5))
       }
     },[LastUpdatedManga.top])
 
@@ -53,11 +54,11 @@ const Home: FC = ({ AllManga, LastUpdatedManga, ResentlyAddedManga}: InferGetSta
     )
 }
 
-export const getStaticProps : GetStaticProps = async (context)=>{
+export const getServerSideProps : GetServerSideProps = async (context)=>{
   const [AllMangaRes, LastUpdatedMangaRes, ResentlyAddedMangaRes] = await Promise.all([ 
     fetch(`https://api.jikan.moe/v3/top/manga/1`),
     fetch('https://api.jikan.moe/v3/top/manga/1/bypopularity'),
-    fetch('https://api.jikan.moe/v3/top/manga/1'),
+    fetch('https://api.jikan.moe/v3/top/manga/3'),
   ])
 
 const [AllManga, LastUpdatedManga, ResentlyAddedManga] = await Promise.all([

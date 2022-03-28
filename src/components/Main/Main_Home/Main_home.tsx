@@ -39,7 +39,7 @@ const Main: FC<Props> = ({allManga, lastUpdatedManga, resentlyAddedManga, sidepa
             <div className={styles.main__form_card}>
                 { 
                 allManga && allManga.map((el: any)=>{
-                    return <Card key={el.mal_id} minWidth='170px'
+                    return <Card key={el.mal_id}
                                     {...el}
                                 />
                 })}

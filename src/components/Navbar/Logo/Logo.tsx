@@ -5,11 +5,6 @@ import { useRouter } from "next/router";
 import styles from './Logo.module.scss'
 
 const Logo: FC = () => {
-    const router = useRouter()
-    const hangleClick = useCallback(()=>{
-        setTimeout(()=>
-        router.push('/'),3000)
-    },[])
     return(
         <div className={styles.navbar__logo_place}>
         <Link href='/'>

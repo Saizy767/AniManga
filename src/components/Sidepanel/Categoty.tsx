@@ -1,7 +1,6 @@
 import React from 'react'
 import {IoHomeSharp} from 'react-icons/io5'
 import {AiOutlineClockCircle, AiOutlineLike, AiOutlineGlobal} from 'react-icons/ai'
-import {IoAlbums} from 'react-icons/io5'
 import {GiBookshelf} from 'react-icons/gi'
 
 import styles from './Sidepanel.module.scss'
@@ -32,23 +31,17 @@ name:'Liked manga',
 url:'/liked',
 icon:<AiOutlineLike className={styles.category__icon}/>
 }
-const Subsctiptions:Category ={
-id:4,
-name:'Subscriptions',
-url:'/subscription',
-icon:<IoAlbums className={styles.category__icon}/>
-}
 const Categorys:Category ={
-id:5,
+id:4,
 name:'Category',
 url:'/category',
 icon:<GiBookshelf className={styles.category__icon}/>
 }
 const Tops:Category ={
-id:6,
+id:5,
 name:'Top 10',
 url:'/top',
 icon:<AiOutlineGlobal className={styles.category__icon}/>
 }
 
-export const Array_category: Array<Category> = [Home,Watch_later,Likely,Subsctiptions,Categorys,Tops]
+export const Array_category: Array<Category> = [Home,Watch_later,Likely,Categorys,Tops]

@@ -17,7 +17,7 @@ const Main:FC<Props> =({sidepanel})=>{
                 <div className={styles.main__form}>
                     {Array_top.map((el)=>{
                         return(
-                            <TopCard name={el.name} id={el.id}/>
+                            <TopCard name={el.name} id={el.id} image={el.image} key={el.id} shortname={el.shortName}/>
                         )
                         })}
                 </div>

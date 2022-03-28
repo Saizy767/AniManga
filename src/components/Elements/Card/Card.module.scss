@@ -3,7 +3,13 @@
     background-color: black;
     overflow: hidden;
     border-radius: 5px ;
-    
+    @media screen and (max-width:600px) {
+        max-width: 190px;
+    }
+    @media screen and (max-width:450px) {
+        max-width: none;
+    }
+
     &:hover{
         transform: scale(1.05);
     }
@@ -33,7 +39,11 @@
         cursor: pointer;
         max-height: 310px;
         min-height: 290px;
-        @media screen and (max-width:450px){
+        @media screen and (min-width:600px){
+            max-height: none;
+            width: 100%;
+        }
+        @media screen and (max-width:400px){
             max-height: none;
             width: 100%;
         }
