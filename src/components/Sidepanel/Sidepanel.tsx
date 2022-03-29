@@ -7,6 +7,7 @@ import { Array_category } from "./Categoty";
 import Search from "../Navbar/Search/Search";
 
 import styles from './Sidepanel.module.scss'
+import { sidepanelChangerAction } from "../../redux/action/SidepanelChangeAction";
 
 
 interface PropsType {
@@ -24,7 +25,7 @@ const SidePanel:FC<PropsType> = ({sidepanel,mobileAdaptive},) => {
                     {Array_category.map((el)=>{
                         return(
                         <Link href={el.url} key={el.id}>
-                            <div>
+                            <div onClick={() => sidepanelChangerAction()}>
                                 {sidepanel ?
                                 <li className={styles.sidepanel_active__li} key={el.id}>{el.icon}{el.name}</li>
                                 :
@@ -39,8 +40,11 @@ const SidePanel:FC<PropsType> = ({sidepanel,mobileAdaptive},) => {
     )
 }
 
+const mapDispatchToProps ={
+    sidepanelChangerAction
+}
 
 const mapStateToProps = (state: rootReducerType) => ({ 
     sidepanel: state.sidepanel.activity
 })
-export default connect(mapStateToProps,null)(SidePanel)
+export default connect(mapStateToProps,mapDispatchToProps)(SidePanel)

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from './Top_Card.module.scss'
 
 interface Props{
@@ -22,8 +21,9 @@ const TopCard:FC<Props> = ({name, id, image, shortname}) =>{
     },[image])
     
     return (
+        
         <div className={styles.Card}>
-            <Link href={`/top/${id}${shortname}`} as={`/top/${id}${shortname}`}>
+            <Link href={`./top/${id}/${shortname}`} as={`./top/${id}/${shortname}`}>
                 <div className={styles.Card__main}>
                     {isLoadImg? <img className={styles.Card__logo} src={image}/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>

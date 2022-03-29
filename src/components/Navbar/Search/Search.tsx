@@ -7,7 +7,7 @@ import {BiSearchAlt2} from 'react-icons/bi'
 import {searchChangerAction} from '../../../redux/action/SearchBoxAction';
 
 import styles from './Search.module.scss'
-import { rootReducerType } from "src/redux/rootReducer/rootReducer";
+import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 
 
 interface Props{
@@ -67,7 +67,14 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
                                     onChange={handleSearch}
                                     onKeyPress={(e)=>{handleKeyPress(e)}}
                 />
-                <Link href={`/search/${searchResult}`}>
+                <Link href={{
+                    pathname: './search',
+                    query:{search:`${searchResult}}`}
+                    }} 
+                    as={{
+                        pathname:'./search',
+                        query: {search:`${searchResult}`}
+                        }}>
                     <div className={styles.search__button}>
                         <BiSearchAlt2 className={styles.search__icon}/>
                     </div>

@@ -4,10 +4,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidepanel from "../../components/Sidepanel/Sidepanel";
 import NextNProgress from "../../components/Elements/ProgressBar/ProgressBar";
 
+
 interface Props{
-    TopManga:any
+    TopManga:any,
+    CategoryManga:any
 }
-const topTen :FC<Props> = ({TopManga})=>{
+const topTen :FC<Props> = ({TopManga, CategoryManga})=>{
     const [isTopManga, setIsTopManga]= useState()
 
     useEffect(()=>{
@@ -15,6 +17,8 @@ const topTen :FC<Props> = ({TopManga})=>{
           setIsTopManga(TopManga.top)
         }
       },[TopManga.top])
+
+  
     return(
         <>
             <NextNProgress
@@ -26,10 +30,12 @@ const topTen :FC<Props> = ({TopManga})=>{
             />
             <Navbar topManga={isTopManga}/>
             <Sidepanel/>
+            
         </>
     )
 } 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    
     const [TopMangaRes] = await Promise.all([ 
         fetch(`https://api.jikan.moe/v3/top/manga/4`),
       ])

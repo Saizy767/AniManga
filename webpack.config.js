@@ -8,10 +8,11 @@ module.exports={
     entry: {main: './src/pages/index.tsx',
             manga: './src/pages/[type]/[id].tsx',
             error: './src/pages/404.tsx',
-            searchName: './src/pages/search/[name].tsx',
+            searchName: './src/pages/search/[search].tsx',
             watchLater: './src/pages/watch_later.tsx',
             liked: './src/pages/liked.tsx',
-            top: './src/pages/top/index.tsx',},
+            top: './src/pages/top/index.tsx',
+            topTen: './src/pages/top/[id]/[shortname].tsx'},
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[hash].js'

@@ -9,15 +9,16 @@ import button from "../Adding_btn/Adding_btn.module.scss"
 import Adding_btn from "../Adding_btn/Adding_btn"
 
 interface PropsType{
-    image_url?:string,
-    title?:string,
-    volumes?: number,
-    mal_id?:number,
+    image_url:string,
+    title:string,
+    volumes: number,
+    mal_id:number,
     minWidth?:string,
-    type?:string,
+    type:string,
+    maxHeigth?:string,
 }
 
-const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth}) => {
+const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth, maxHeigth}) => {
     const [isWatched, setIsWatched] = useState(false)
     const [isLoadImg, setIsLoadImg] = useState('')
     const [isLoadText, setIsLoadText] = useState('')
@@ -30,7 +31,7 @@ const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth}) => {
         setIsLoadText(title)
     },[title])
     return(
-        <div className={styles.Card} style={{minWidth:minWidth}}>
+        <div className={styles.Card} style={{minWidth:minWidth, maxWidth:maxHeigth}}>
             <Link href={`/${type}/${mal_id}`} as={`/${type}/${mal_id}`}>
                 <div className={styles.Card__main}>
                     {isLoadImg? <img className={styles.Card__logo} src={image_url}/>:

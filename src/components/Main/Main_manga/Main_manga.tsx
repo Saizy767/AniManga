@@ -1,6 +1,9 @@
 import Link from "next/link";
 import React, { FC, useState } from "react";
-import { AiOutlineClockCircle, AiOutlineLike, AiOutlineCheck, AiFillLike, AiOutlineStar, AiFillStar} from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineLike,
+         AiOutlineCheck, AiFillLike,
+         AiOutlineStar, AiFillStar} from "react-icons/ai";
+import { connect } from "react-redux";
 
 import Adding_btn from "../../Elements/Adding_btn/Adding_btn";
 
@@ -10,7 +13,7 @@ import second from './Second_manga.module.scss'
 import button from '../../Elements/Adding_btn/Adding_btn.module.scss'
 import { Carousel } from "../../Elements/Carousel/Carousel";
 import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
-import { connect } from "react-redux";
+import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
   
 interface Props{
     characters?:any,
@@ -20,8 +23,10 @@ interface Props{
 
 const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     const Discription : Array<any> =[
+        {name: 'Chapters', value: manga?.chapters || 'Not added yet', id: 7},
         {name: 'Top of popularity', value: manga?.popularity, id:6},
         {name: 'Rank', value: manga?.rank, id: 3},
+        {name: 'Year of puplished', value: manga.published?.prop?.from?.year, id: 2},
     ]
     
     if(manga && manga.themes){
@@ -34,16 +39,10 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
         {return <p className={first.row__personal__author} key={el.mal_id}>{el.name + ' '}</p>}), 
         id: 4})
     }
-    if(manga && manga.published && manga.published.prop.from.year){
-        Discription.push({name: 'Year of puplished', value: manga.published.prop.from.year, id: 2})
-    }
     if (manga && manga.genres){
         Discription.push({name: 'Type',value: manga.genres.map((el:any)=>
         {return <p className={first.row__personal__type} key={Math.random()}>{el.name + ' '}</p>}),
         id: 1})
-    }
-    if (manga && manga.chapters){
-        Discription.push({name: 'Chapters', value: manga.chapters || 'Not added yet', id: 7})
     }
     if (manga && manga.related && manga.related.Prequel){
         Discription.push({name: 'Prequel', value: manga.related.Prequel.map((el: any)=>
@@ -54,7 +53,6 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
         <Link href={`/${el.mal_id}`} key={el.mal_id}><p className={first.row__personal__interquel} key={el.mal_id}>{el.name}</p></Link >), id: 9})
     }
 
-    const[isAcriveDiscription, setIsActiveDiscription] = useState(true)
     const[isWatched, setIsWatched] = useState(false)
     const[isLiked, setIsLiked] = useState(false)
     const[isRating, setIsRating] =useState(manga.score)
@@ -82,16 +80,7 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                         <h1 className={first.description__name_nation}>{manga.title_english || manga.title}</h1>
                         <h2 className={first.description__name_origin}>{manga.title}</h2>
                     </div>
-                    <div className={first.description__synopsis}>
-                        {isAcriveDiscription ? 
-                        <p className={`${first.description__synopsis_short} ${first.description__synopsis_short_active}`}>{manga.synopsis}</p> :
-                        <p className={`${first.description__synopsis_short}`}>{manga.synopsis}</p>}
-                    </div>
-                    <div role='button' className={first.description__button} onClick={()=>setIsActiveDiscription(!isAcriveDiscription)}>
-                        <span className={first.description__button_text}>
-                            {isAcriveDiscription ? 'Read more' : 'Read less'}
-                        </span>
-                    </div>
+                    <Synopsis element={manga.synopsis}/>
                     <div className={first.description__about}>
                         <div className={first.description__about_header}>
                             <h3>About manga</h3>

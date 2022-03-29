@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react"
-import {GetServerSideProps, GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next"
+import {GetServerSideProps, InferGetServerSidePropsType } from "next"
 import NextNProgress from "../components/Elements/ProgressBar/ProgressBar"
 import Head from "next/head"
 
