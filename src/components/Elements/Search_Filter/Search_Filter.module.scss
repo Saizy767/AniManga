@@ -1,0 +1,81 @@
+.search_filter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    background-color: gray;
+    margin-top: 3%;
+    border-radius: 10px;
+    &__box{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: gray;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    &__filterFlex{
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    &__buttonFlex{
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        margin: 20px 0px;
+        margin-right: 20px;
+        margin-left: auto;
+    }
+    &__genre{
+        position: relative;
+        width: 280px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        margin-left: 30px;
+        cursor: pointer;
+    }
+    &__type{
+        position: relative;
+        width: 200px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        margin-left: 2%;
+        cursor: pointer;
+    }
+    &__randomButton{
+        position: relative;
+        width: 180px;
+        height: 40px;
+        background-color: rgb(117, 187, 12);
+        cursor: pointer;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border: none;
+        border-radius: 2px;
+    }
+    &__searchButton{
+        position: relative;
+        width: 180px;
+        height: 40px;
+        background-color: rgb(236, 121, 15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border: none;
+        border-radius: 2px;
+    }
+    &__buttonIcon{
+        position: relative;
+        width: auto;
+        height: 50%;
+        margin: 0% 20% 0% 10%;
+    }
+}

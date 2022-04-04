@@ -3,6 +3,7 @@
     background-color: black;
     overflow: hidden;
     border-radius: 5px ;
+    min-height: 290px;
     @media screen and (max-width:600px) {
         max-width: 190px;
     }
@@ -12,6 +13,11 @@
 
     &:hover{
         transform: scale(1.05);
+    }
+    &__main{
+        position: relative;
+        min-height: 290px;
+        max-height: 310px;
     }
     &__name{
         position: relative;
@@ -26,16 +32,15 @@
         }
         &_box{
             position: relative;
-            top: 95%;
             box-shadow: 0px 2px 30px 30px black;
             background-color: black;
         }
     }
     &__logo{
-        position: relative;
+        position: relative !important;
         cursor: pointer;
-        max-height: 310px;
-        min-height: 290px;
+        max-height: 310px !important;
+        min-height: 290px !important;
         @media screen and (min-width:600px){
             max-height: none;
             width: 100%;

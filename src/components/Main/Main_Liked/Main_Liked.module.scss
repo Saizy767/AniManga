@@ -73,7 +73,7 @@
         &_poster{
             position: relative;
             width: 30%;
-            height: 290px;
+            min-height: 290px;
             background-color: gray;
             left: 50%;
             transform: translateX(-50%);

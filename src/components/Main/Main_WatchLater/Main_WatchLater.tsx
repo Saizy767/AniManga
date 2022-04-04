@@ -40,7 +40,7 @@ const Main:FC<Props> = ({sidepanel}) =>{
                                 const [hoverRef, isHovered]= useHover<HTMLDivElement>()
                                 index+=1
                                 return(
-                                <li className={styles.slider__li}>
+                                <li className={styles.slider__li} key={index}>
                                     <img className={styles.slider__image}></img>
                                     <div className={styles.slider__name}>
                                         <span className={styles.slider__name_text}>Manga</span>

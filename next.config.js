@@ -13,5 +13,6 @@ module.exports = {
     },
     images:{
       domains:['cdn.myanimelist.net'],
+      formats: ['image/avif', 'image/webp'],
     },
   };
