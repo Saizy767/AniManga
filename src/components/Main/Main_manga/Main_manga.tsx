@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { FC, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineLike,
          AiOutlineCheck, AiFillLike,
-         AiOutlineStar, AiFillStar} from "react-icons/ai";
+        AiOutlineStar, AiFillStar} from "react-icons/ai";
 import { connect } from "react-redux";
 
 import Adding_btn from "../../Elements/Adding_btn/Adding_btn";
@@ -14,6 +14,7 @@ import button from '../../Elements/Adding_btn/Adding_btn.module.scss'
 import { Carousel } from "../../Elements/Carousel/Carousel";
 import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
+import Image from "next/image";
   
 interface Props{
     characters?:any,
@@ -62,7 +63,9 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
             <section className={sidepanel ? first.main__background_active : first.main__background}>
             <div className={first.main__box}>
                 <div className={first.main__picture_box}>
-                    <img src={manga.image_url} alt='logo' className={first.main__picture}/>
+                    <div className={first.main__picture_place}>
+                        <Image src={manga.image_url} alt='logo' className={first.main__picture} layout='fill'/>
+                    </div>
                     <div className={first.main__picture_buttons}>
                         <div className={first.main__watch_btn} onClick={()=>setIsWatched(!isWatched)}>
                             { isWatched ?   <Adding_btn text='Added' element={<AiOutlineCheck className={button.adding_btn_icon}/>}/>
@@ -156,16 +159,19 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                             })}
                         </div>
                     </div>
-                    {characters && <div className={second.characters}>
-                        <div className={second.characters__header}>
-                            <span className={second.characters__header_text}>Characters</span>
+                    {characters && <div className={second.charactersSlider}>
+                        <div className={second.charactersSlider__header}>
+                            <span className={second.charactersSlider__header_text}>Characters</span>
                         </div>
                         <Carousel>
                             {characters.map((el:any)=>{
+                                console.log(el)
                                 return(
-                                    <div className={second.card} key={Math.random()}>
-                                        <img src={el.image_url} className={second.card__image}></img>
-                                        <span className={second.card__name}>{el.name}</span>
+                                    <div className={second.character}>
+                                        <div className={second.character__image} key={el.mal_id}>
+                                            <Image src={el.image_url} layout='fill'/>
+                                        </div>
+                                        <span className={second.character__name}>{el.name}</span>
                                     </div>
                                 )
                             })}

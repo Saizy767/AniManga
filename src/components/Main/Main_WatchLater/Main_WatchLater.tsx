@@ -51,7 +51,7 @@ const Main:FC<Props> = ({sidepanel}) =>{
                                         <IoIosRemoveCircleOutline className={styles.slider__delete_icon} title='Remove manga'/>
                                         }
                                     </div>
-                                </li>)})}
+                            </li>)})}
                         </ul>
                     </div>
                 </div>

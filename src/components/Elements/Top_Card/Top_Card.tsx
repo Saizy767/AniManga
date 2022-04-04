@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { FC, useEffect, useState } from "react";
 import styles from './Top_Card.module.scss'
@@ -25,7 +26,7 @@ const TopCard:FC<Props> = ({name, id, image, shortname}) =>{
         <div className={styles.Card}>
             <Link href={`./top/${id}/${shortname}`} as={`./top/${id}/${shortname}`}>
                 <div className={styles.Card__main}>
-                    {isLoadImg? <img className={styles.Card__logo} src={image}/>:
+                    {isLoadImg? <img className={styles.Card__logo} src={image} layout='fill'/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
                     }
                     <div className={styles.Card__name_box}>

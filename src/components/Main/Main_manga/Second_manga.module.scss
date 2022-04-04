@@ -175,7 +175,7 @@
         border: 3px black solid;
     }
 }
-.characters{
+.charactersSlider{
     position: relative;
     width: 100%;
     height: 80%;
@@ -191,17 +191,18 @@
         }
     }
 }
-.card{
+.character{
     position: relative;
+    display: flex;
+    flex-direction: column;
     &__image{
-        object-fit: cover;
-        max-height: 300px;
-        min-height: 300px;
-        min-width: 200px;
-        max-width: 200px;
+    position: relative;
+    max-height: 300px;
+    min-height: 300px;
+    min-width: 200px;
+    max-width: 200px;
     }
     &__name{
-        display: block;
         text-align: center;
         font-size: 25px;
     }

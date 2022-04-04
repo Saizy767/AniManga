@@ -34,8 +34,8 @@ const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth, maxHeigth})
     return(
         <div className={styles.Card} style={{minWidth:minWidth, maxWidth:maxHeigth}}>
             <Link href={`/${type}/${mal_id}`} as={`/${type}/${mal_id}`}>
-                <>
                 <div className={styles.Card__main}>
+                <div className={styles.Card__image}>
                     {isLoadImg? <Image className={styles.Card__logo} src={image_url} layout='fill'/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
                     }
@@ -44,7 +44,7 @@ const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth, maxHeigth})
                             {isLoadText ?   <p className={styles.Card__name}>{title}</p>:
                                             <p className={styles.Card__name}></p>}
                 </div>
-                </>
+                </div>
             </Link>
             <div onClick={()=>{setIsWatched(!isWatched)}}>
             { useMemo(()=>isWatched,[isWatched]) ?   <Adding_btn text='Added' element={<AiOutlineCheck className={button.adding_btn_icon}/>}/>
