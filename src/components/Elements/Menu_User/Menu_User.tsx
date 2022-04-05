@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Avatar_User from "../Avatar_User/Avatar_User";
-import { Array_settings } from "./Menu_conteiner";
+import { Array_settings } from "../../../api/Menu_conteiner";
 
 import styles from './Menu_User.module.scss'
 

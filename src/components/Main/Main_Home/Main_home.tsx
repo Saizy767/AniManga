@@ -2,7 +2,7 @@ import React, { FC, useRef} from "react";
 import { connect } from "react-redux";
 import { rootReducerType } from "src/redux/rootReducer/rootReducer";
 
-import Card from '../../Elements/Card/Card'
+import Card from '../../Elements/Card/Home_Card/Home_Card'
 import {Carousel }from '../../Elements/Carousel/Carousel'
 
 import styles from './Main_home.module.scss'

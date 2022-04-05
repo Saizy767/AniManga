@@ -39,8 +39,8 @@ const SearchPage:FC<InferGetServerSidePropsType<typeof getServerSideProps>>=({se
         </>
     )
 }
-export const getServerSideProps: GetServerSideProps = async({query})=>{
-    const searchName= query.name
+export const getServerSideProps: GetServerSideProps = async( context)=>{
+    const searchName= context.query.q
     const [searchMangaRes, TopMangaRes] = await Promise.all([
         fetch(`https://api.jikan.moe/v3/search/manga?q=${searchName}}&order_by=title&sort=asc&limit=40}`),
         fetch(`https://api.jikan.moe/v3/top/manga/1`),
@@ -49,6 +49,7 @@ export const getServerSideProps: GetServerSideProps = async({query})=>{
         searchMangaRes.json(),
         TopMangaRes.json()
     ])
+    console.log(context)
     return {
         props: {searchManga, TopManga}
     }

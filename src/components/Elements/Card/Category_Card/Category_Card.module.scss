@@ -1,0 +1,79 @@
+.Card{
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 5px ;
+    min-height: 290px;
+    @media screen and (max-width:600px) {
+        max-width: 190px;
+    }
+    @media screen and (max-width:450px) {
+        max-width: none;
+    }
+
+    &:hover{
+        transform: scale(1.05);
+    }
+    &__image{
+        position: relative;
+        height: 400px;
+        @media screen and (min-width:1400px) {
+            height: 500px;
+        }
+        @media screen and (min-width:1920px) {
+            height: 500px;
+        }
+        @media screen and (max-width:1400px) {
+            height: 500px;
+        }
+        @media screen and (max-width:1300px) {
+            height: 450px;
+        }
+        @media screen and (max-width:800px) {
+            height: 400px;
+        }
+        @media screen and (max-width:600px) {
+            height: 500px;
+        }
+        @media screen and (max-width:450px) {
+            height: 350px;
+        }
+    }
+    &__name{
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        color: rgb(255, 166, 0);
+        cursor: pointer;
+        margin-bottom: 5%;
+        width: 100%;
+        &:hover{
+            color: rgb(255, 190, 1);
+        }
+        &_box{
+            position: relative;
+            box-shadow: 0px 2px 30px 30px black;
+            background-color: black;
+        }
+    }
+    &__logo{
+        position: relative;
+        cursor: pointer;
+        @media screen and (min-width:600px){
+            max-height: none;
+            width: 100%;
+        }
+        @media screen and (max-width:400px){
+            max-height: none;
+            width: 100%;
+        }
+    }
+    &__last_volume{
+        position: relative;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 15%;
+
+    }
+}

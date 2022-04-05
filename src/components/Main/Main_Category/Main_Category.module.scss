@@ -36,4 +36,17 @@
             padding-left: 0%;
         }
     }
+    &__form_card{
+        margin-top: 5%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(170px,1fr));
+        grid-gap: .5rem;
+        @media screen and (max-width:600px) {
+            grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+        }
+        &_tags{
+            display: flex;
+            flex-direction: row;
+        }
+    }
 }

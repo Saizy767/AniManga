@@ -4,9 +4,9 @@ import Image from "next/image";
 
 import {AiOutlineCheck, AiOutlineClockCircle} from 'react-icons/ai'
 
-import styles from "./Card.module.scss"
-import button from "../Adding_btn/Adding_btn.module.scss"
-import Adding_btn from "../Adding_btn/Adding_btn"
+import styles from "./Home_Card.module.scss"
+import button from "../../Adding_btn/Adding_btn.module.scss"
+import Adding_btn from "../../Adding_btn/Adding_btn"
 
 
 interface PropsType{

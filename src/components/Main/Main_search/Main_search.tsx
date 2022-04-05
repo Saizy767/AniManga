@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useRouter } from "next/router";
 
-import Card from "../../Elements/Card/Card";
+import Card from "../../Elements/Card/Home_Card/Home_Card";
 
 import styles from "./Main_search.module.scss"
 
@@ -16,11 +16,11 @@ const Main : FC<Props> = ({searchManga})=>{
         <>
         <main className={styles.main_background}>
             <div className={styles.main__box}>
-                <span className={styles.main__box_text}>Search results of "{router.query.name}"</span>
+                <span className={styles.main__box_text}>Search results of "{router.query.q}"</span>
             </div>
             <div className={styles.main__form_card}>
                 {searchManga && searchManga.map((el: any)=>{
-                    return <Card key={el.mal_id} minWidth='170px'
+                    return <Card key={el.mal_id}
                                     {...el}/>
                 })}
             </div>

@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { connect } from "react-redux";
 import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 
-import TopCard from "../../../components/Elements/Top_Card/Top_Card";
-import { Array_top } from "./Tops";
+import TopCard from "../../Elements/Card/Top_Card/Top_Card";
+import { Array_top } from "../../../api/Tops";
 
 import styles from './Main_Top.module.scss'
 

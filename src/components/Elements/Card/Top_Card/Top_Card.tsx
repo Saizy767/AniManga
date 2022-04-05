@@ -26,7 +26,7 @@ const TopCard:FC<Props> = ({name, id, image, shortname}) =>{
         <div className={styles.Card}>
             <Link href={`./top/${id}/${shortname}`} as={`./top/${id}/${shortname}`}>
                 <div className={styles.Card__main}>
-                    {isLoadImg? <img className={styles.Card__logo} src={image} layout='fill'/>:
+                    {isLoadImg? <img className={styles.Card__logo} src={image}/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
                     }
                     <div className={styles.Card__name_box}>

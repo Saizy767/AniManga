@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
+import Category_Card from "../../../components/Elements/Card/Category_Card/Category_Card";
 import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
 import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
-import Card from "../../../components/Elements/Card/Card";
+
 import styles from "./Main_TopManga.module.scss"
 
 interface Props{
@@ -20,7 +21,7 @@ const Main:FC<Props> = ({categoryManga, sidepanel}) =>{
                         <div className={styles.card}key={el.mal_id}>
                             <h2 className={styles.card__raiting}>#{Top10--}</h2>
                             <h3 className={styles.card__title}>{el.title}</h3>
-                            <Card {...el} maxHeigth={'400px'}/>
+                            <Category_Card {...el} maxHeigth={'400px'}/>
                             <div style={{marginTop:'50px'}}>
                                 <Synopsis element={el.synopsis}/>
                             </div>

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Link from "next/link";
 
 import { rootReducerType } from "../../redux/rootReducer/rootReducer";
-import { Array_category } from "./Categoty";
+import { Array_category } from "../../api/Sidepanel";
 import Search from "../Navbar/Search/Search";
 
 import styles from './Sidepanel.module.scss'

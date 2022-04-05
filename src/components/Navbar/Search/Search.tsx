@@ -38,7 +38,7 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
 
     const handleKeyPress = useCallback((target)=>{
         if (target.charCode === 13){
-            router.push(`/search/${searchResult}`)
+            router.push(`./search/search?q=${searchResult}`)
         }
     },[searchResult])
 
@@ -69,11 +69,11 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
                 />
                 <Link href={{
                     pathname: './search',
-                    query:{search:`${searchResult}}`}
+                    query:{q:`${searchResult}`}
                     }} 
                     as={{
                         pathname:'./search',
-                        query: {search:`${searchResult}`}
+                        query: {q: `${searchResult}`}
                         }}>
                     <div className={styles.search__button}>
                         <BiSearchAlt2 className={styles.search__icon}/>
@@ -86,6 +86,7 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
                             <Link href={`/${element.type}/${element.mal_id}`} key={element.mal_id}>
                                 <li className={styles.search__response_li}>{element.title}</li>
                             </Link>
+
                             )
                         }): topManga && topManga.slice(0,5).map((element:any)=>{
                             return(

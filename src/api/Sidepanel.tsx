@@ -3,7 +3,7 @@ import {IoHomeSharp} from 'react-icons/io5'
 import {AiOutlineClockCircle, AiOutlineLike, AiOutlineGlobal} from 'react-icons/ai'
 import {GiBookshelf} from 'react-icons/gi'
 
-import styles from './Sidepanel.module.scss'
+import styles from '../components/Sidepanel/Sidepanel.module.scss'
 
 
 interface Category{

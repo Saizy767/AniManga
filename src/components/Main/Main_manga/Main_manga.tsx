@@ -41,7 +41,7 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
         id: 4})
     }
     if (manga && manga.genres){
-        Discription.push({name: 'Type',value: manga.genres.map((el:any)=>
+        Discription.push({name: 'Genre',value: manga.genres.map((el:any)=>
         {return <p className={first.row__personal__type} key={Math.random()}>{el.name + ' '}</p>}),
         id: 1})
     }
