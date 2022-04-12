@@ -6,7 +6,7 @@ import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { changeCharacterScroll } from "../../../redux/reducer/charactersSlice";
 
 interface Props{
-    characters: Array<object>
+    characters?: Array<object>
 }
 
 const CharactersCarousel:FC<Props> = ({characters}) => {

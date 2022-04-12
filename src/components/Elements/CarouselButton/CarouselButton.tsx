@@ -31,6 +31,9 @@ const CarouselButton: FC<Props> = ({position, rotate, sign, changeScrool, childr
     const handleStopPropagation = useCallback((event)=>{
         event.stopPropagation()
     },[])
+
+    console.log(-children.length * weigthCard)
+    console.log(number - (weigthCard*2))
     return(
         <div className={styles.button} style={{left:position}} onClick={(e)=> handleStopPropagation(e)}>
             <input type='checkbox' className={styles.button__input}/>

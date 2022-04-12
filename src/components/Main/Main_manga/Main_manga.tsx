@@ -159,7 +159,7 @@ const Main: FC<Props> = ({manga, characters}) =>{
                             })}
                         </div>
                     </div>
-                    <CharactersCarousel characters={characters} />
+                    {characters && <CharactersCarousel characters={characters} />}
                     <div className={second.second__recomented}>
                     </div>
                 </div>

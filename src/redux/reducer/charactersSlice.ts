@@ -7,7 +7,7 @@ interface transformSrcoll{
 
 const initialState: transformSrcoll ={
     numberCharacter: 0,
-    weigthCharacter: 200
+    weigthCharacter: 208
 }
 
 export const scrollCharacterSlice = createSlice({
