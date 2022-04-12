@@ -1,16 +1,16 @@
 import React, { FC } from "react";
-import { connect } from "react-redux";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import Category_Card from "../../../components/Elements/Card/Category_Card/Category_Card";
 import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
-import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 
 import styles from "./Main_TopManga.module.scss"
 
 interface Props{
     categoryManga:any,
-    sidepanel:boolean
 }
-const Main:FC<Props> = ({categoryManga, sidepanel}) =>{
+const Main:FC<Props> = ({categoryManga}) =>{
+
+    const {sidepanel} = useTypedSelector(state => state.giudeButton)
     let Top10 = 10;
     return(
         <main className={sidepanel ? styles.main__background_active : styles.main_background}>
@@ -33,8 +33,4 @@ const Main:FC<Props> = ({categoryManga, sidepanel}) =>{
     )
 }
 
-const mapStateToProps = (state: rootReducerType) => ({ 
-    sidepanel: state.sidepanel.activity
-})
-
-export default connect(mapStateToProps,null)(Main)
+export default Main

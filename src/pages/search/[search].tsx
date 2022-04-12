@@ -49,7 +49,6 @@ export const getServerSideProps: GetServerSideProps = async( context)=>{
         searchMangaRes.json(),
         TopMangaRes.json()
     ])
-    console.log(context)
     return {
         props: {searchManga, TopManga}
     }

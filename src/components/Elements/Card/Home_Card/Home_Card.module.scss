@@ -6,9 +6,11 @@
     min-height: 290px;
     @media screen and (max-width:600px) {
         max-width: 190px;
+        min-height: 400px;
     }
     @media screen and (max-width:450px) {
         max-width: none;
+        min-height: 400px;
     }
 
     &:hover{
@@ -17,7 +19,6 @@
     &__image{
         position: relative;
         min-height: 290px;
-        max-height: 310px;
     }
     &__name{
         position: relative;

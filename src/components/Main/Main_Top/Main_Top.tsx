@@ -1,16 +1,14 @@
 import React, { FC } from "react";
-import { connect } from "react-redux";
-import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 
 import TopCard from "../../Elements/Card/Top_Card/Top_Card";
 import { Array_top } from "../../../api/Tops";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 
 import styles from './Main_Top.module.scss'
 
-interface Props {
-    sidepanel: boolean,
-}
-const Main:FC<Props> =({sidepanel})=>{
+const Main:FC =()=>{
+    const {sidepanel} = useTypedSelector(state => state.giudeButton)
+
     return(
         <>
             <main className={sidepanel ? styles.main__background_active : styles.main__background}>
@@ -26,8 +24,4 @@ const Main:FC<Props> =({sidepanel})=>{
     )
 }
 
-
-const mapStateToProps = (state: rootReducerType) => ({ 
-    sidepanel: state.sidepanel.activity
-})
-export default connect(mapStateToProps,null)(Main)
+export default Main

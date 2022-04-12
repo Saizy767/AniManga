@@ -1,0 +1,66 @@
+.slider{
+    &__li{
+        position: relative;
+        color: white;
+        display: flex;
+        border: white 1px solid;
+        flex-direction: row;
+    }
+    &__image{
+        position: relative;
+        width: 50px;
+        height: 85px;
+        margin: 2% 5%;
+        background-color: white;
+        flex: 1;
+        cursor: pointer;
+        min-width: 50px;
+        @media  screen and (min-width:1920px) {
+            height: 150px;
+        }
+    }
+    &__name{
+        position: relative;
+        font-size: 25px;
+        vertical-align: middle;
+        flex: 8;
+        @media  screen and (min-width:1920px) {
+            font-size: 45px;;
+        }
+        &_text{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            &:hover{
+                color: orange;
+            }
+        }
+    }
+    &__delete{
+        position: relative;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width:1024px) {
+            flex: 2;
+        }
+        @media screen and (max-width:450px) {
+            flex: 3;
+        }
+        &_icon{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            cursor: pointer;
+            &_active{
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+}

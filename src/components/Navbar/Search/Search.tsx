@@ -1,25 +1,27 @@
 import React, { ChangeEvent, FC, useCallback , useEffect, useRef, useState} from "react";
-import { connect } from "react-redux";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import {useTypedSelector} from '../../../hooks/useTypedSelector'
+import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
 
 import {BiSearchAlt2} from 'react-icons/bi'
-import {searchChangerAction} from '../../../redux/action/SearchBoxAction';
+import { changeInput } from "../../../redux/reducer/searchBoxSlice";
 
 import styles from './Search.module.scss'
-import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 
 
 interface Props{
-    searchResult:string,
-    searchChangerAction:(text:string) => void,
     topManga?:any,
 }
-const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
+
+const Search: FC<Props> = ({topManga}) => {
+
     const router = useRouter()
     const searchRef =useRef(null)
     const [active, setActive] = useState(false)
     const [listManga, setList] = useState([])
+    const inputText = useTypedSelector(state => state.searchInput.text)
+    const dispatch = useTypedDispatch()
 
     const onFocus = useCallback(()=>{
         setActive(true)
@@ -33,14 +35,14 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
     },[searchRef.current])
 
     const handleSearch = useCallback((event:ChangeEvent<HTMLInputElement>)=>{
-        searchChangerAction(event.target.value)
+        dispatch(changeInput(event.target.value))
     },[])
 
     const handleKeyPress = useCallback((target)=>{
         if (target.charCode === 13){
-            router.push(`./search/search?q=${searchResult}`)
+            router.push(`/search/search?q=${inputText}`)
         }
-    },[searchResult])
+    },[inputText])
 
     const fetchManga = async (event:string) => {
         const temp = 
@@ -51,11 +53,10 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
 
     useEffect(()=>{
         const delayDebounceFn = setTimeout(() => {
-            fetchManga(searchResult)
+            fetchManga(inputText)
         }, 500)
-
         return () => clearTimeout(delayDebounceFn)
-    }, [searchResult])
+    }, [inputText])
     return(
         <>
             <div className={styles.search} ref={searchRef}>
@@ -63,17 +64,17 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
                                     onClick={onClick}
                                     onFocus={onFocus}
                                     placeholder={'Search'}
-                                    value={searchResult}
+                                    value={inputText}
                                     onChange={handleSearch}
                                     onKeyPress={(e)=>{handleKeyPress(e)}}
                 />
                 <Link href={{
-                    pathname: './search',
-                    query:{q:`${searchResult}`}
+                    pathname: '/search',
+                    query:{q:`${inputText}`}
                     }} 
                     as={{
-                        pathname:'./search',
-                        query: {q: `${searchResult}`}
+                        pathname:'/search',
+                        query: {q: `${inputText}`}
                         }}>
                     <div className={styles.search__button}>
                         <BiSearchAlt2 className={styles.search__icon}/>
@@ -101,11 +102,5 @@ const Search: FC<Props> = ({searchResult, searchChangerAction, topManga}) => {
 
     )
 }
-const mapStateToProps=(state:rootReducerType)=>({
-    searchResult:state.search_box.state
-})
-const mapDispatchToProps={
-    searchChangerAction
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default Search

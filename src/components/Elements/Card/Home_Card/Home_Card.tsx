@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState} from "react";
+import React, { FC, useEffect, useMemo, useRef, useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -24,6 +24,8 @@ const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth, maxHeigth})
     const [isLoadImg, setIsLoadImg] = useState('')
     const [isLoadText, setIsLoadText] = useState('')
 
+    const lazyRoot = useRef(null)
+
     useEffect(()=>{
         setIsLoadImg(image_url)
     },[image_url])
@@ -35,8 +37,8 @@ const Card: FC<PropsType> = ({image_url,title,mal_id,type, minWidth, maxHeigth})
         <div className={styles.Card} style={{minWidth:minWidth, maxWidth:maxHeigth}}>
             <Link href={`/${type}/${mal_id}`} as={`/${type}/${mal_id}`}>
                 <div className={styles.Card__main}>
-                <div className={styles.Card__image}>
-                    {isLoadImg? <Image className={styles.Card__logo} src={image_url} layout='fill'/>:
+                <div className={styles.Card__image} ref={lazyRoot}>
+                    {isLoadImg? <Image lazyRoot={lazyRoot} className={styles.Card__logo} src={image_url} layout='fill'/>:
                                 <div className={styles.Card__logo} style={{backgroundColor:'gray'}}></div>
                     }
                 </div>

@@ -1,15 +1,25 @@
-import { addingButtonChangeReducer } from '../reducer/AddingBtnChangeReducer';
-import { sidepanelChangeReducer } from './../reducer/SidepanelChangeReducer';
-import { searchChangeReducer } from '../reducer/SearchBoxReducer';
+import { guideButtonSlice } from './../reducer/sidepanelGuideButton';
 import { combineReducers } from "redux";
-
+import { configureStore } from '@reduxjs/toolkit';
+import { searchSlice } from '../reducer/searchBoxSlice';
+import { scrollUpdatedSlice } from '../reducer/updatedButtonSlice';
+import { scrollRecentlySlice } from '../reducer/recentlyButtonSlice';
 
 const rootReducer = combineReducers({
-    sidepanel: sidepanelChangeReducer,
-    watch_later_btn: addingButtonChangeReducer,
-    search_box: searchChangeReducer,
+    giudeButton: guideButtonSlice.reducer,
+    searchInput: searchSlice.reducer,
+    scrollUpdatedCarousel: scrollUpdatedSlice.reducer,
+    scrollRecentlyCarousel: scrollRecentlySlice.reducer
 })
 
-export type rootReducerType = ReturnType<typeof rootReducer>;
+export const setupStore = () => {
+    return configureStore({
+        reducer: rootReducer
+    })
+}
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']
 
 export default rootReducer

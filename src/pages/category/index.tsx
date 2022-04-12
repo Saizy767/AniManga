@@ -35,7 +35,6 @@ const topTen :FC<Props> = ({TopManga, RandomManga, AllManga})=>{
         }
       },[RandomManga.data.mal_id, RandomManga.data.type])
 
-    console.log(AllManga)
     return(
         <>
             <NextNProgress

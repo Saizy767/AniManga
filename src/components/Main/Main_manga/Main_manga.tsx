@@ -3,7 +3,6 @@ import React, { FC, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineLike,
          AiOutlineCheck, AiFillLike,
         AiOutlineStar, AiFillStar} from "react-icons/ai";
-import { connect } from "react-redux";
 
 import Adding_btn from "../../Elements/Adding_btn/Adding_btn";
 
@@ -12,17 +11,16 @@ import second from './Second_manga.module.scss'
 
 import button from '../../Elements/Adding_btn/Adding_btn.module.scss'
 import { Carousel } from "../../Elements/Carousel/Carousel";
-import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
 import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
 import Image from "next/image";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
   
 interface Props{
     characters?:any,
     manga?:any,
-    sidepanel?:boolean,
 }
 
-const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
+const Main: FC<Props> = ({manga, characters}) =>{
     const Discription : Array<any> =[
         {name: 'Chapters', value: manga?.chapters || 'Not added yet', id: 7},
         {name: 'Top of popularity', value: manga?.popularity, id:6},
@@ -58,6 +56,8 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     const[isLiked, setIsLiked] = useState(false)
     const[isRating, setIsRating] =useState(manga.score)
     const[isHovered, setIsHovered] =useState(0)
+
+    const {sidepanel} = useTypedSelector(state => state.giudeButton)
     return(
         <main>
             <section className={sidepanel ? first.main__background_active : first.main__background}>
@@ -165,7 +165,6 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
                         </div>
                         <Carousel>
                             {characters.map((el:any)=>{
-                                console.log(el)
                                 return(
                                     <div className={second.character}>
                                         <div className={second.character__image} key={el.mal_id}>
@@ -185,7 +184,4 @@ const Main: FC<Props> = ({manga, characters, sidepanel}) =>{
     )
 }
 
-const mapStateToProps= (state:rootReducerType)=>({
-    sidepanel: state.sidepanel.activity
-})
-export default connect(mapStateToProps,null)(Main)
+export default Main

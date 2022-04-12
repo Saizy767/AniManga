@@ -1,18 +1,11 @@
 import React, { FC } from "react";
-import { connect } from "react-redux";
-import { rootReducerType } from "../../../redux/rootReducer/rootReducer";
-import {IoIosRemoveCircleOutline, IoIosRemoveCircle} from 'react-icons/io'
-
-import { useHover } from "../../../hooks/useHover";
-
 import styles from './Main_Liked.module.scss'
 import Avatar_User from "../../../components/Elements/Avatar_User/Avatar_User";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import SavedMangaCell from "../../../components/Elements/SavedMangaCell/SavedMangaCell";
 
-interface Props{
-    sidepanel:boolean
-}
-const Main:FC<Props> = ({sidepanel}) =>{
-    const [hoverRef, isHovered] = useHover<HTMLDivElement>()
+const Main:FC = () =>{
+    const {sidepanel} = useTypedSelector(state => state.giudeButton)
 
     return(
         <>
@@ -39,21 +32,10 @@ const Main:FC<Props> = ({sidepanel}) =>{
                     <div className={styles.slider__place}>
                         <ul className={styles.slider__ul}>
                                 {[...Array(5)].map((volume, index)=>{
-                                const [hoverRef, isHovered]= useHover<HTMLDivElement>()
                                 index+=1
                                 return(
-                                <li className={styles.slider__li}>
-                                    <img className={styles.slider__image}></img>
-                                    <div className={styles.slider__name}>
-                                        <span className={styles.slider__name_text}>Manga</span>
-                                    </div>
-                                    <div className={styles.slider__delete} ref={hoverRef}>
-                                        {isHovered ?
-                                        <IoIosRemoveCircle className={styles.slider__delete_icon_active} title='Remove manga'/> :
-                                        <IoIosRemoveCircleOutline className={styles.slider__delete_icon} title='Remove manga'/>
-                                        }
-                                    </div>
-                                </li>)})}
+                                    <SavedMangaCell key={index}/>
+                                )})}
                         </ul>
                     </div>
                 </div>
@@ -63,7 +45,4 @@ const Main:FC<Props> = ({sidepanel}) =>{
     )
 }
 
-const mapStateToProps = (state: rootReducerType) => ({ 
-    sidepanel: state.sidepanel.activity
-})
-export default connect(mapStateToProps,null)(Main)
+export default Main
