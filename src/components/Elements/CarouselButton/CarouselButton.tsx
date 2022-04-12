@@ -10,8 +10,8 @@ interface Props{
     rotate: string,
     sign: string,
     changeScrool: ActionCreatorWithOptionalPayload<number, string>,
-    children: any,
-    number: number
+    children?: Array<object>,
+    number: number,
 }
 const CarouselButton: FC<Props> = ({position, rotate, sign, changeScrool, children, number}) => {
     const hoverRef= useRef(null)
