@@ -1,3 +1,4 @@
+import { scrollCharacterSlice } from './../reducer/charactersSlice';
 import { guideButtonSlice } from './../reducer/sidepanelGuideButton';
 import { combineReducers } from "redux";
 import { configureStore } from '@reduxjs/toolkit';
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
     giudeButton: guideButtonSlice.reducer,
     searchInput: searchSlice.reducer,
     scrollUpdatedCarousel: scrollUpdatedSlice.reducer,
-    scrollRecentlyCarousel: scrollRecentlySlice.reducer
+    scrollRecentlyCarousel: scrollRecentlySlice.reducer,
+    scrollCharactersCarousel: scrollCharacterSlice.reducer,
 })
 
 export const setupStore = () => {

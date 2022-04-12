@@ -15,7 +15,7 @@ module.exports={
             topTen: './src/pages/top/[id]/[shortname].tsx'},
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash].js'
+        filename: '[name].[contenthash].js'
       },
     resolve:{
       extensions: [".tsx", ".js",".ts",]

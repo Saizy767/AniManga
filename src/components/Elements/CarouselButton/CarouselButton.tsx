@@ -12,18 +12,19 @@ interface Props{
     changeScrool: ActionCreatorWithOptionalPayload<number, string>,
     children?: Array<object>,
     number: number,
+    weigthCard: number
 }
-const CarouselButton: FC<Props> = ({position, rotate, sign, changeScrool, children, number}) => {
+const CarouselButton: FC<Props> = ({position, rotate, sign, changeScrool, children, number, weigthCard}) => {
     const hoverRef= useRef(null)
     const isHovered = useHover(hoverRef)
     const dispatch = useTypedDispatch()
 
     const handleScrool = useCallback((props)=>{
-        if (props.sign === '-' && (number - 380) <= -children.length * 190){
-            dispatch(changeScrool((-(children.length-1) * 190) - number))
+        if (props.sign === '-' && (number - (weigthCard*2)) <= -children.length * weigthCard){
+            dispatch(changeScrool((-(children.length-1) * weigthCard) - number))
         }
         else{
-            dispatch(changeScrool(Number(`${props.sign}190`)))
+            dispatch(changeScrool(Number(`${props.sign}${weigthCard}`)))
         }
     },[number])
 

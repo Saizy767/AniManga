@@ -7,9 +7,10 @@ interface Props{
     children?: Array<object>,
     changeScrollHome: ActionCreatorWithOptionalPayload<number, string>,
     number: number,
+    weigth: number,
 }
 
-export const Carousel: FC<Props> = ({children, changeScrollHome, number}) =>{
+export const Carousel: FC<Props> = ({children, changeScrollHome, number, weigth}) =>{
     return(
         <div className={styles.conteiner}>
             { number <= -190 ? <CarouselButton position={'15%'}
@@ -18,6 +19,7 @@ export const Carousel: FC<Props> = ({children, changeScrollHome, number}) =>{
                                                changeScrool={changeScrollHome}
                                                children={children}
                                                number={number}
+                                               weigthCard={weigth}
                             /> : ''}
             <div className={styles.conteiner__window}>
                 <div className={styles.conteiner__all_items} style={{transform:`translateX(${number}px)`}}>
@@ -30,6 +32,7 @@ export const Carousel: FC<Props> = ({children, changeScrollHome, number}) =>{
                                                                        changeScrool={changeScrollHome}
                                                                        children={children}
                                                                        number={number}
+                                                                       weigthCard={weigth}
                             />: ''}
                             
         </div>

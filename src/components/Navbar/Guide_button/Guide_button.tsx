@@ -5,10 +5,7 @@ import styles from './Guide_button.module.scss'
 import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
 import { changeGuideButton } from "../../../redux/reducer/sidepanelGuideButton";
 
-interface Props{
-    sidepanelChangerAction: ()=> void
-}
-const Guide_button: FC<Props> = ({sidepanelChangerAction}) =>{
+const Guide_button: FC = () =>{
     const dispatch = useTypedDispatch()
 
     const handleClick = useCallback(() => {

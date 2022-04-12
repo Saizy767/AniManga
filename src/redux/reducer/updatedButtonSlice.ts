@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface transformSrcoll{
-    numberUpdated: number
+    numberUpdated: number,
+    weigthUpdated: number,
 }
 
 const initialState: transformSrcoll ={
-    numberUpdated: 0
+    numberUpdated: 0,
+    weigthUpdated: 190
 }
 
 export const scrollUpdatedSlice = createSlice({

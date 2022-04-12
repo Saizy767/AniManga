@@ -10,10 +10,10 @@ import first from './Main_manga.module.scss'
 import second from './Second_manga.module.scss'
 
 import button from '../../Elements/Adding_btn/Adding_btn.module.scss'
-import { Carousel } from "../../Elements/Carousel/Carousel";
 import Synopsis from "../../../components/Elements/Synopsis/Synopsis";
 import Image from "next/image";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import CharactersCarousel from "../../../components/Elements/CharactersCarousel/CharactersCarousel";
   
 interface Props{
     characters?:any,
@@ -159,23 +159,7 @@ const Main: FC<Props> = ({manga, characters}) =>{
                             })}
                         </div>
                     </div>
-                    {characters && <div className={second.charactersSlider}>
-                        <div className={second.charactersSlider__header}>
-                            <span className={second.charactersSlider__header_text}>Characters</span>
-                        </div>
-                        <Carousel>
-                            {characters.map((el:any)=>{
-                                return(
-                                    <div className={second.character}>
-                                        <div className={second.character__image} key={el.mal_id}>
-                                            <Image src={el.image_url} layout='fill'/>
-                                        </div>
-                                        <span className={second.character__name}>{el.name}</span>
-                                    </div>
-                                )
-                            })}
-                        </Carousel>
-                    </div>}
+                    <CharactersCarousel characters={characters} />
                     <div className={second.second__recomented}>
                     </div>
                 </div>
